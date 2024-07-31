@@ -1,60 +1,122 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 900px;
     flex-flow: column;
-    position:relative;
+    background-color: black;
 }
-.overlay{
+
+.title {
+    font-family: monospace;
+    font-size: x-large;
+    margin-bottom: 4%;
+}
+
+.overlay {
     display: flex;
     justify-content: center;
     flex-flow: column;
     width: 60%;
     height: 400px;
-    background-color: rgb(214, 231, 238);
+    background-color: rgb(11, 11, 11);
     margin-bottom: 4%;
+    border-radius: 30px;
+    border: 2px solid rgb(255, 255, 255);
 }
-.overlaytitle{
+
+.overlaytitle {
     display: flex;
     height: 50%;
     justify-content: center;
     align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: x-large;
+    font-size: xx-large;
 }
-.overlaylinks{
+
+.overlaylinks {
     height: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size:xx-large;
+    font-size: xx-large;
 }
-.projectbox{
+
+.projectbox {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(233, 232, 230);
+    background-color: rgb(11, 11, 11);
     width: 90%;
-    height: 200px;
+    height:auto;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: large;
+
 }
-.projecttitle{
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   font-size: x-large;
-   margin-bottom: 1%;
+
+.projecttitle {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    margin-bottom: 1%;
 }
-a{
-    text-decoration: none;
+.horizontalrule{
+    width: 15%;
+    margin-bottom: 2%;
+}
+.projectboxes {
+    width: 20%;
+    height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
     color: black;
+    font-family: monospace;
 }
-a:hover{
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
     color: rgb(218, 212, 203);
 }
-#background-video{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
+
+.animated-title {
+    font-family: monospace;
+    overflow: hidden;
+    animation: typing 4s steps(10) forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 10ch;
+    }
+}
+
+h {
+    color: white;
+}
+
+.blink-animation {
+    animation: blink 2s steps(1, end) infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
