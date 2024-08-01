@@ -1,49 +1,49 @@
 body {
     height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 10%;
+    align-items: center;
+    margin-top:5%;
     background-color: antiquewhite;
+    flex-direction: column;
 }
 
 h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+.titlebox{
+    text-align: center;
+}
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px;
+    height: auto;
     width: 100%;
     flex-direction: column;
 }
 
 .pic {
-    height: 200px;
-    width: 200px;
-
+    height: 70%;
+    width: 100%;
 }
 
 button {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: x-large;
-    width: 40%;
+    width: auto;
     border-radius: 12px;
 }
 
 .buttonbox {
-    width: 10%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    position: absolute;
-    margin-top: 25%;
+    justify-content: center;
+    margin-top: -10%;
 }
 
 #button2 {
     position: relative;
-   
 }
 
 .button1:hover {
