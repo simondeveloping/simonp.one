@@ -138,29 +138,28 @@ h{
 .aboutthispageleftup{
     width: 40%;
     height: 40%;
-    flex-wrap: wrap;
     margin-bottom: 5%;
 }
 .aboutthispagerightup{
     width: 40%;
     height: 40%;
-    flex-wrap: wrap;
     margin-bottom: 5%;
 }
 .aboutthispageleftdown{
     width: 40%;
     height: 40%;
-    flex-wrap: wrap;
 }
 .aboutthispagerightdown{
     width: 40%;
     height: 40%;
-    flex-wrap: wrap;
 }
 .aboutthispagetext{
-    font-size: x-large;
+    font-size: xx-large;
 }
 .aboutthispageheader{
-    font-size: 40px;
+    font-size:40px;
     margin-bottom: 1%;
+    flex-wrap: wrap;
+    display: flex;
+    word-wrap: anywhere;
 }
