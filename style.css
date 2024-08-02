@@ -21,10 +21,11 @@ body {
     width: 40%;
     height: 250px;
     background-color: rgb(11, 11, 11);
-    margin-bottom: 2%;
+    margin-bottom: 4%;
     border-radius: 30px;
     border: 2px solid rgb(255, 255, 255);
     flex-wrap: wrap;
+    word-wrap: break-word;
 }
 
 .overlaytitle {
@@ -52,7 +53,7 @@ body {
     height: auto;
     font-size: large;
     flex-wrap: wrap;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }
 
 .sectiontitle {
@@ -133,10 +134,10 @@ h {
 }
 
 .aboutthispage {
-    width: 55%;
+    width: 50%;
     height: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 1%;
     color: white;
     font-family: monospace;
@@ -144,9 +145,10 @@ h {
 }
 
 .aboutthispagetextbox {
-    width: 650px;
+    width: 500px;
     height: auto;
     margin-bottom: 15%;
+    margin-right: 3%;
 }
 
 .aboutthispagetext {
