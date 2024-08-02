@@ -24,8 +24,6 @@ body {
     margin-bottom: 4%;
     border-radius: 30px;
     border: 2px solid rgb(255, 255, 255);
-    flex-wrap: wrap;
-    word-wrap: break-word;
 }
 
 .overlaytitle {
@@ -49,7 +47,7 @@ body {
     justify-content: space-around;
     align-items: center;
     background-color: rgb(0, 0, 0);
-    width: 60%;
+    width: 50%;
     height: auto;
     font-size: large;
     flex-wrap: wrap;
@@ -134,21 +132,28 @@ h {
 }
 
 .aboutthispage {
-    width: 50%;
+    width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin-top: 1%;
     color: white;
     font-family: monospace;
+}
+.aboutthispagelayer{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .aboutthispagetextbox {
     width: 500px;
     height: auto;
-    margin-bottom: 15%;
     margin-right: 3%;
+    margin-bottom: 3%;
+    text-align: center;
 }
 
 .aboutthispagetext {
@@ -158,7 +163,6 @@ h {
 .aboutthispageheader {
     font-size: 2rem;
     margin-bottom: 1%;
-    flex-wrap: wrap;
-    display: flex;
     word-wrap: anywhere;
+    text-align: center;
 }
