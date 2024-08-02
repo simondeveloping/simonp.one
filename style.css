@@ -13,12 +13,17 @@ body {
     margin-bottom: 3%;
     margin-top: 2%;
 }
-
+.containerforoverlay{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
 .overlay {
     display: flex;
     justify-content: center;
     flex-flow: column;
-    width: 43%;
+    width: 900px;
     height: 250px;
     background-color: rgb(11, 11, 11);
     margin-bottom: 4%;
@@ -44,10 +49,10 @@ body {
 
 .projectbox {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: rgb(0, 0, 0);
-    width: 50%;
+    width: 100%;
     height: auto;
     font-size: large;
     flex-wrap: wrap;
@@ -78,6 +83,8 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 h2 {
@@ -167,7 +174,8 @@ h {
     text-align: center;
 }
 .footer{
-    display: flex;
+    text-align: center;
+    margin-top: 5%;
     color: white;
     font-family: monospace;
     font-size: large;
