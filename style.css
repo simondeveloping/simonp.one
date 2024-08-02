@@ -24,6 +24,7 @@ body {
     margin-bottom: 2%;
     border-radius: 30px;
     border: 2px solid rgb(255, 255, 255);
+    flex-wrap: wrap;
 }
 
 .overlaytitle {
@@ -132,7 +133,7 @@ h {
 }
 
 .aboutthispage {
-    width: 60%;
+    width: 55%;
     height: auto;
     display: flex;
     justify-content: space-around;
@@ -143,9 +144,9 @@ h {
 }
 
 .aboutthispagetextbox {
-    width: 600px;
+    width: 650px;
     height: auto;
-    margin-bottom: 5%;
+    margin-bottom: 15%;
 }
 
 .aboutthispagetext {
@@ -153,7 +154,7 @@ h {
 }
 
 .aboutthispageheader {
-    font-size: 40px;
+    font-size: 2rem;
     margin-bottom: 1%;
     flex-wrap: wrap;
     display: flex;
