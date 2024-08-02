@@ -1,3 +1,3 @@
-# Persönliche Website
+# Personal Website
 
-Das ist ein Projekt von mir! :D
+This is a website :)
