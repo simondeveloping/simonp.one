@@ -19,7 +19,7 @@ document.getElementById("suggestionsubmit").addEventListener("click",function(ev
     const list = document.getElementsByTagName('li');
     let mailtext = '';
     for(let i = 0; i<list.length;i++){
-        mailtext += list[i].textContent + '%0A';
+        mailtext += list[i].textContent + '\n';
         console.log(mailtext);
     }
     const body = encodeURIComponent(mailtext);

@@ -38,7 +38,7 @@ document.getElementById("button1").addEventListener("click", () => {
     });
 })
 document.getElementById("button1").addEventListener("click", function () {
-    document.getElementById("textbox").textContent = "Yeey Date time :D";
+    document.getElementById("textbox").textContent = "Yeey Date time 😎";
     pic.src = "pinguin.jpg";
 });
 
