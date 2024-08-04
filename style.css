@@ -199,7 +199,7 @@ h3{
 .suggestionbox{
     width: 300px;
     height: auto;
-    max-height: 100px;
+    max-height: 200px;
     overflow-y: scroll;
     overflow-x: hidden;
     word-wrap: break-word;
