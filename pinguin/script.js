@@ -55,6 +55,6 @@ document.getElementById("button2").addEventListener("click", function () {
     if (newHeight > 50) {
         document.getElementById("textbox").textContent = "OK FINE! F*ck u 😭";
         button2.disabled = true;
-        pic.src = "sadpinguin.jpg";
+        pic.src = "pinguinsad.jpg";
     }
 });
