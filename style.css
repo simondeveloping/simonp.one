@@ -198,6 +198,7 @@ h3{
 .suggestionbox{
     width: 300px;
     height: auto;
+    max-height: 100px;
     overflow-y: scroll;
     overflow-x: hidden;
     word-wrap: break-word;
@@ -208,6 +209,8 @@ h3{
     color: white;
     font-family: monospace;
     border-radius: 12px;
+    padding: 5px;
+    padding-left: 2px;
 }
 .suggestionbutton:hover{
     background-color:darkcyan ;
