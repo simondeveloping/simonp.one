@@ -180,3 +180,40 @@ h {
     font-family: monospace;
     font-size: large;
 }
+input{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid white;
+    font-size: medium;
+}
+h3{
+    font-size: x-large;
+    color: white;
+    font-family: monospace;
+}
+.suggestionbox{
+    width: 300px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap: break-word;
+}
+.suggestionbutton{
+    background-color: black;
+    font-size: large;
+    color: white;
+    font-family: monospace;
+    border-radius: 12px;
+}
+.suggestionheader{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+li{
+    color: white;
+    font-family: monospace;
+    font-size: medium;
+}

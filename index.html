@@ -11,18 +11,18 @@
 <body>
     <h class="animated-title title">simon.uno/</h>
     <div class="containerforoverlay">
-    <div class="overlay">
-        <div class="overlaytitle">
-            <h>Important<span class="blink-animation">/</span></h>
+        <div class="overlay">
+            <div class="overlaytitle">
+                <h>Important<span class="blink-animation">/</span></h>
+            </div>
+            <div class="overlaylinks">
+                <a href="https://github.com/SimonTesting"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/simonp_25/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://de.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:simon.pham@web.de"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://www.paypal.me/simonpham2005"><i class="fa-brands fa-paypal"></i></a>
+            </div>
         </div>
-        <div class="overlaylinks">
-            <a href="https://github.com/SimonTesting"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.instagram.com/simonp_25/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://de.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="mailto:simon.pham@web.de"><i class="fa-regular fa-envelope"></i></a>
-            <a href="https://www.paypal.me/simonpham2005"><i class="fa-brands fa-paypal"></i></a>
-        </div>
-    </div>
     </div>
     <h></h>
     <div class="sectiontitle">
@@ -61,11 +61,13 @@
                 <div class="aboutthispagetext">The primary intention of this site is to serve as a platform for sharing
                     my
                     personal projects and creative endeavors. It's a space where I can document my journey, showcase my
-                    work, and explore new ideas.</div>
+                    work, and explore new ideas.
+                </div>
             </div>
             <div class="aboutthispagetextbox">
                 <div class="aboutthispageheader"><strong>Ideas</strong><span class="blink-animation">/</span></div>
-                <div class="aboutthispagetext">- CSS Animation<br>- Games (Tic Tac Toe...)<br>- Animated stuff<br>- Videos<br>- more Javascript</div>
+                <div class="aboutthispagetext">- CSS Animation<br>- Games (Tic Tac Toe...)<br>- Animated stuff<br>-
+                    Videos<br>- more Javascript</div>
             </div>
         </div>
         <div class="aboutthispagelayer">
@@ -80,11 +82,22 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
+    <h3>Suggestions</h3>
+    <form id="suggestionform">
+        <div class="suggestionheader">
+            <input type="text" id="suggestioninput">
+            <button id="suggestionbutton" type="submit" class="suggestionbutton">Save</button>
+        </div>
+        <div class="suggestionbox">
+            <ul id="suggestiontable"></ul>
+        </div>
+
+    </form>
     <div class="footer">
-        <h>Copyright&nbsp;</h><i class="fa-regular fa-copyright"></i><h>&nbsp;2024 Simon - All Rights Reserved</h> 
+        <h>Copyright&nbsp;</h><i class="fa-regular fa-copyright"></i>
+        <h>&nbsp;2024 Simon - All Rights Reserved</h>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
