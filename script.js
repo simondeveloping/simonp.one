@@ -12,3 +12,17 @@ function addToList() {
         document.getElementById("suggestioninput").value = '';
     }
 }
+document.getElementById("suggestionsubmit").addEventListener("click",function(event){
+    event.preventDefault();
+    const email = "simon.pham@web.de";
+    const subject = "Feedback Website";
+    const list = document.getElementsByTagName('li');
+    let mailtext = '';
+    for(let i = 0; i<list.length;i++){
+        mailtext += list[i].textContent + '\n';
+        console.log(mailtext);
+    }
+    const body = encodeURIComponent(mailtext);
+    suggestionsubmit.href = `mailto:${email}?subject=${(subject)}&body=${body}`;
+    window.location.href = suggestionsubmit.href;
+})
