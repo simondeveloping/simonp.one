@@ -227,3 +227,32 @@ li{
     font-family: monospace;
     font-size: medium;
 }
+.paybox{
+    width: 20%;
+    height: auto;
+    padding: 10px;
+    border-radius: 12px;
+    border:2px solid darkcyan;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    animation:payboxanimation 2s steps(1,end) infinite;
+}
+@keyframes payboxanimation{
+    0%{
+        border:2px solid rgb(117, 215, 117);
+    }
+    25%{
+        border:2px solid rgb(14, 164, 97);
+    }
+    50%{
+        border:2px solid rgb(141, 248, 233);
+    }
+    100%{
+        border:2px solid rgb(28, 225, 153);
+    }
+}
