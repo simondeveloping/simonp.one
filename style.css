@@ -91,7 +91,9 @@ h2 {
     color: black;
     font-family: monospace;
 }
-
+.projectboxlink{
+    color: black;
+}
 a {
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -99,7 +101,7 @@ a {
 }
 
 a:hover {
-    color: rgb(218, 212, 203);
+    color:darkcyan;
 }
 
 .animated-title {
@@ -206,6 +208,9 @@ h3{
     color: white;
     font-family: monospace;
     border-radius: 12px;
+}
+.suggestionbutton:hover{
+    background-color:darkcyan ;
 }
 .suggestionheader{
     display: flex;
