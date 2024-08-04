@@ -12,6 +12,7 @@ body {
     font-size: xx-large;
     margin-bottom: 3%;
     margin-top: 2%;
+    width: auto;
 }
 .containerforoverlay{
     width: 100%;
