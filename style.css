@@ -107,7 +107,7 @@ a:hover {
 .animated-title {
     font-family: monospace;
     overflow: hidden;
-    animation: typing 4s steps(10) forwards;
+    animation: typing 4s steps(11) forwards;
 }
 
 @keyframes typing {
@@ -116,7 +116,7 @@ a:hover {
     }
 
     to {
-        width: 10ch;
+        width: 11ch;
     }
 }
 
