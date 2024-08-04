@@ -43,7 +43,7 @@ document.getElementById("button1").addEventListener("click", function () {
 });
 
 document.getElementById("button2").addEventListener("click", function () {
-    document.getElementById("textbox").textContent = "Please :(";
+    document.getElementById("textbox").textContent = "Please 😥";
     const button1 = document.getElementById("button1");
     const currentWidth = button1.offsetWidth;
     const currentHeight = button1.offsetHeight;
@@ -53,7 +53,7 @@ document.getElementById("button2").addEventListener("click", function () {
     button1.style.height = `${newHeight}px`;
     button1.style.fontSize = `${parseFloat(window.getComputedStyle(button1).fontSize) * 1.1}px`;
     if (newHeight > 50) {
-        document.getElementById("textbox").textContent = "OK FINE! F*ck u ;(";
+        document.getElementById("textbox").textContent = "OK FINE! F*ck u 😭";
         button2.disabled = true;
         pic.src = "sadpinguin.jpg";
     }
