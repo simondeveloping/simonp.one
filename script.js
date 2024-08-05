@@ -26,3 +26,10 @@ document.getElementById("suggestionsubmit").addEventListener("click",function(ev
     suggestionsubmit.href = `mailto:${email}?subject=${(subject)}&body=${body}`;
     window.location.href = suggestionsubmit.href;
 })
+document.getElementById("login-form").addEventListener("submit",async function(event){
+    event.preventDefault();
+    const password=document.getElementById('password').value;
+    if(password === "testingstuff"){
+        document.getElementById("testbutton").disabled=false;
+    }
+})
