@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev2.css">
+    <link rel="stylesheet" href="stylev3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <body>
     <h class="animated-title title">simonp.one/</h>
     <div class="paybox">
@@ -21,7 +22,6 @@
             <div class="overlaylinks">
                 <a href="https://github.com/simondeveloping"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.instagram.com/simonp_25/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://de.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="mailto:simon.pham@web.de"><i class="fa-regular fa-envelope"></i></a>
             </div>
         </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="projectboxes">
             <h2><a href="/zufallsgenerator/generator" class="projectboxlink">
-                <i class="fa-solid fa-cloud"></i> Project2<span class="blink-animation">/</span>
+                    <i class="fa-solid fa-cloud"></i> Project2<span class="blink-animation">/</span>
                 </a>
             </h2>
         </div>
@@ -98,18 +98,36 @@
             <ul id="suggestiontable"></ul>
         </div>
     </form>
-    <h3><a href="#" id="suggestionsubmit">Submit</a></h3>
-    <form id="login-form">        
-        <label for="password"><h3>Passwort:</h3></label>
+    <h3 id="suggestionsub"><a href="#" id="suggestionsubmit">Submit</a></h3>
+    <div class="sectiontitle">
+        <h>"Private Stuff"<span class="blink-animation">/</span></h>
+    </div>
+    <div class="horizontalrulelarge">
+        <hr>
+    </div>
+    <form id="login-form">
+        <label for="password">
+            <h3>Passwort:</h3>
+        </label>
         <input type="password" id="password" name="password" required>
-        
-        <button type="submit">Login</button>
-        <button id="testbutton">test</button>
+        <button type="submit" id="loginbutton">Login</button>
     </form>
+    <div class="privatestuffbox">
+        <div class="privateprojectbox" id="privateboxout1">
+            <a id="privatebox1">Project1</a>
+        </div>
+        <div class="privateprojectbox" id="privateboxout2">
+            <a id="privatebox2">Project2</a>
+        </div>
+        <div class="privateprojectbox" id="privateboxout3">
+            <a id="privatebox3">Project3</a>
+        </div>
+    </div>
     <div class="footer">
         <h>Copyright&nbsp;</h><i class="fa-regular fa-copyright"></i>
         <h>&nbsp;2024 Simon - All Rights Reserved</h>
     </div>
-    <script src="scriptv1.js"></script>
+    <script src="scriptv2.js"></script>
 </body>
+
 </html>
