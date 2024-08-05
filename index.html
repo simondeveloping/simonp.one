@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev4.css">
+    <link rel="stylesheet" href="stylev5.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <body>
@@ -109,7 +109,7 @@
         <label for="password">
             <h3>Passwort:</h3>
         </label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="passwordforprivat" name="passwordforprivat" required>
         <button type="submit" id="loginbutton">Login</button>
     </form>
     <div class="privatestuffbox">
@@ -123,11 +123,19 @@
             <a id="privatebox3">Project3</a>
         </div>
     </div>
+    <form id="log-in">
+        <h3>Register:</h3>
+        <input type="text" id="username" name="username" required placeholder="username">
+        <input type="email" id="mail" name="mail" required placeholder="email">
+        <input type="password" id="pass" name="pass" required placeholder="password">
+        <button type="submit" id="databaselogin">Register</button>
+    </form>
     <div class="footer">
         <h>Copyright&nbsp;</h><i class="fa-regular fa-copyright"></i>
         <h>&nbsp;2024 Simon - All Rights Reserved</h>
     </div>
-    <script src="scriptv2.js"></script>
+    <script type="module" src="database.js"></script>
+        
+    <script src="scriptv3.js"></script>
 </body>
-
 </html>
