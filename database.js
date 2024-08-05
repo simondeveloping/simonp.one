@@ -46,12 +46,20 @@ const analytics = getAnalytics(app);
 const db = getDatabase(app);
 document.getElementById("databaselogin").addEventListener("click", function (event) {
     event.preventDefault();
-    set(ref(db, 'user/' + document.getElementById("username").value), {
-        email: document.getElementById("mail").value,
-        password: document.getElementById("pass").value
+    let username = document.getElementById("usernameregister").value;
+    let mail = document.getElementById("mailregister").value;
+    let password = document.getElementById("passwordregister").value;
+    if(!mail|| !password|| !username){
+        alert("Invalid!");
+        return;
+    }
+    set(ref(db, 'user/' + username), {
+        username: username,
+        email: mail,
+        password: password
     });
     alert("Success! You are now registered");
-    document.getElementById("username").value = '';
-    document.getElementById("mail").value = '';
-    document.getElementById("pass").value='';
+    document.getElementById("usernameregister").value = '';
+    document.getElementById("mailregister").value = '';
+    document.getElementById("passwordregister").value='';
 })
