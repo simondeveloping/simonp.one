@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev5.css">
+    <link rel="stylesheet" href="stylev6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <body>
     <h class="animated-title title">simonp.one/</h>
+    <form id="Register">
+        <h3>Register:</h3>
+        <input type="text" id="usernameregister" name="usernameregister" placeholder="username" required>
+        <input type="email" id="mailregister" name="mailregister" placeholder="email" required>
+        <input type="password" id="passwordregister" name="passwordregister" placeholder="password" required>
+        <button type="submit" id="databaselogin">Register</button>
+    </form>
+    <form id="Log-In">
+        <h3>Login:</h3>
+        <input type="text" id="usernamelogin" name="usernamelogin" placeholder="username" required>
+        <input type="password" id="passwordlogin" name="passwordlogin" placeholder="password" required>
+        <button type="submit" id="databaselogin">Login</button>
+    </form>
     <div class="paybox">
         <h3>Support me:</h3>
         <a href="https://www.paypal.me/simonpham2005"><i class="fa-brands fa-paypal" id="pay"></i></a>
@@ -123,25 +136,14 @@
             <a id="privatebox3">Project3</a>
         </div>
     </div>
-    <form id="Register">
-        <h3>Register:</h3>
-        <input type="text" id="usernameregister" name="usernameregister" placeholder="username" required>
-        <input type="email" id="mailregister" name="mailregister" placeholder="email" required>
-        <input type="password" id="passwordregister" name="passwordregister" placeholder="password" required>
-        <button type="submit" id="databaselogin">Register</button>
-    </form>
-    <form id="Log-In">
-        <h3>Login:</h3>
-        <input type="text" id="usernamelogin" name="usernamelogin" placeholder="username" required>
-        <input type="password" id="passwordlogin" name="passwordlogin" placeholder="password" required>
-        <button type="submit" id="databaselogin">Login</button>
-    </form>
+
     <div class="footer">
         <h>Copyright&nbsp;</h><i class="fa-regular fa-copyright"></i>
         <h>&nbsp;2024 Simon - All Rights Reserved</h>
     </div>
     <script type="module" src="database.js"></script>
-        
+
     <script src="scriptv3.js"></script>
 </body>
+
 </html>
