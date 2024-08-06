@@ -26,7 +26,7 @@ document.getElementById("databaseregister").addEventListener("click", async func
     event.preventDefault();
     let username = document.getElementById("usernameregister").value;
     let mail =document.getElementById("mailregister").value;
-    let password =await sha256(document.getElementById("passwordregister").value);
+    let password = document.getElementById("passwordregister").value;
     if (!mail || !password || !username) {
         alert("Invalid!");
         return;
@@ -36,7 +36,7 @@ document.getElementById("databaseregister").addEventListener("click", async func
         return;
     }
     set(ref(db, 'user/' + username), {
-        username: username,
+        username: await sha256(username),
         email: await sha256(mail),
         password: password
     });
