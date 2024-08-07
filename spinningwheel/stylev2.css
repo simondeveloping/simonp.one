@@ -174,3 +174,10 @@ body {
     margin-top: -2%;
     z-index: 1000;
 }
+#standardbutton{
+    margin-top: 3%;
+    font-size: larger;
+    border-radius: 12px;
+    border:2px solid blue;
+    padding:5px
+}

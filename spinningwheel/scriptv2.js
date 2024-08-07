@@ -2,7 +2,7 @@ document.getElementById("savebutton").addEventListener("click", function (event)
     event.preventDefault();
     addToList();
 });
-let list =["rgb(253, 95, 95)","rgb(2, 104, 110)","rgb(253, 219, 69)","rgb(123, 237, 110)"];
+let list = ["rgb(253, 95, 95)", "rgb(2, 104, 110)", "rgb(253, 219, 69)", "rgb(123, 237, 110)"];
 function addToList() {
     let inputValue = document.getElementById("wheelinput").value;
     if (document.getElementById("elements").children.length > 3) {
@@ -30,7 +30,7 @@ function removeFromList(li, button) {
     list.push(color);
 }
 
-document.getElementById("spinbutton").addEventListener("click", function(event) {
+document.getElementById("spinbutton").addEventListener("click", function (event) {
     event.preventDefault();
     spinWheel();
 });
@@ -50,3 +50,12 @@ function spinWheel() {
     wheel.style.transition = 'transform 4s ease-out'; // Animation effect
     wheel.style.transform = `rotate(${randomDegree}deg)`;
 }
+document.getElementById("standardbutton").addEventListener("click", function (event) {
+    event.preventDefault();
+    let list = ["Döner","Shawarma","Mensa","Anderes"]
+    for(let i = 0; i<4;i++){
+        document.getElementById("wheelinput").value = list[i];
+        document.getElementById("savebutton").click();
+    }
+    
+})
