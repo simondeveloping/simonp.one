@@ -1,0 +1,40 @@
+body{
+    background-color:rgb(125, 141, 145);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 90vh;
+}
+
+.wheel{
+    width: 80vw;
+    max-width: 400px;
+    height: 80vw;
+    max-height: 400px;
+    border-radius:50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:5px solid white;
+}
+.circle{
+    background-color: aliceblue;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.circlepointer{
+    width: 0;
+    height: 0;
+    border-left: 1vw solid transparent;
+    position: static;
+    border-right: 1vw solid transparent;
+    border-bottom: 3vw solid aliceblue;
+    margin-bottom: 22%;
+}
