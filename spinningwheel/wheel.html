@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Spinning Wheel</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="stylev1.css">
 </head>
+
 <body>
-
-    <div class="wheel">
-<div class="circle"></div>
-<div class="circlepointer"> </div>
+    <form id="inputform">
+        <input id="wheelinput" placeholder="Input">
+        <button id="savebutton">Save</button>
+    </form>
+    <div class="table">
+        <div class="elementtable">
+            <ul id="elements"></ul>
+        </div>
+        <div class="buttontable">
+            <ul id="buttons"> </ul>
+        </div>
     </div>
+        <div class="wheel">
+            <div class="segment1"></div>
+            <div class="segment2"></div>
+            <div class="segment3"></div>
+            <div class="segment4"></div>
+            <div class="circle">😎</div>
+        </div>
+        <div class="pointer">
 
-    <script src="script.js"></script>
+        </div>
+        <button id="spinbutton">Spin</button>
+        <script src="scriptv1.js"></script>
 </body>
+
 </html>
