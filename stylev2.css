@@ -344,10 +344,9 @@ li {
 }
 
 #Register {
-    width: 70%;
+    width: 65%;
     border: 2px solid white;
     border-radius: 12px;
-    padding: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -396,7 +395,6 @@ li {
     width: 65%;
     border: 2px solid white;
     border-radius: 12px;
-    padding: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
