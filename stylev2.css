@@ -13,6 +13,9 @@ body {
     margin-bottom: 3%;
     margin-top: 2%;
     width: auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
 }
 
 .containerforoverlay {
@@ -33,7 +36,12 @@ body {
     border-radius: 30px;
     border: 2px solid rgb(255, 255, 255);
 }
-
+.overlay a:hover{
+    text-shadow: 0 0 100px #00ecb5;
+}
+.overlay:hover{
+    transform:scale(1.05);
+}
 .overlaytitle {
     display: flex;
     height: 50%;
@@ -89,7 +97,9 @@ body {
     margin-left: 1%;
     margin-right: 1%;
 }
-
+.projectboxes:hover{
+    transform:scale(1.05);
+}
 h2 {
     color: black;
     font-family: monospace;
@@ -112,7 +122,7 @@ a:hover {
 .animated-title {
     font-family: monospace;
     overflow: hidden;
-    animation: typing 4s steps(11) forwards;
+    animation: typing 4s steps(15) forwards;
 }
 
 @keyframes typing {
@@ -121,7 +131,7 @@ a:hover {
     }
 
     to {
-        width: 11ch;
+        width: 15ch;
     }
 }
 
@@ -131,7 +141,7 @@ h {
 }
 
 .blink-animation {
-    animation: blink 2s steps(1, end) infinite;
+    animation: blink 3s steps(1, end) infinite;
 }
 
 @keyframes blink {
@@ -145,7 +155,9 @@ h {
         opacity: 0;
     }
 }
-
+.headercolor{
+    color:darkcyan;
+}
 .aboutthispage {
     width: 100%;
     height: auto;
@@ -222,10 +234,7 @@ h3 {
     border-radius: 12px;
     padding: 5px;
     padding-left: 2px;
-}
-
-.suggestionbutton:hover {
-    background-color: darkcyan;
+    border:2px solid rgb(255, 255, 255);
 }
 
 .suggestionheader {
@@ -245,43 +254,64 @@ li {
     font-size: medium;
 }
 
+.containerforpay{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.paytext{
+    width:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: monospace;
+    margin-left: 5%;
+    animation: test;
+}
 .paybox {
     background-color: black;
     color:white;
-    animation: payboxanimation 2s infinite;
+    animation: payboxanimation 3s infinite;
     border-radius: 12px;
-    padding:60px;
-    margin-bottom: 20%;
+    padding: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: x-large;
     font-family: monospace ;    
 }
-
+h6{
+    font-size: 2rem;
+    color:white;
+}
+.blink-animation2{
+    animation: blink2 2s infinite;
+    color: #23d5ab;
+    font-size: 2.5rem;
+}
+@keyframes blink2{
+    0%,100%{
+        opacity: 100%;
+    }
+    50%{
+        opacity: 0%;
+    }
+}
 #pay {
     font-size: x-large;
 }
 
 @keyframes payboxanimation {
-    0% {
-        border: 2px solid rgb(125, 229, 240);
+    0%,100% {
+        border:4px solid #23d5ab;
     }
-
-    25% {
-        border: 2px solid rgb(41, 228, 228);
-    }
-
-    50% {
-        border: 2px solid rgb(12, 208, 182);
-    }
-
-    75% {
-        border: 2px solid rgb(0, 180, 229);
-    }
-
-    100% {
-        border: 2px solid rgb(125, 229, 240);
+    50%{
+        border:4px solid white;
     }
 }
 
@@ -339,27 +369,23 @@ li {
     padding: 3px;
 }
 
-#loginbuttonforprivat:hover {
-    background-color: darkcyan;
-}
-
 #Register {
-    width: 65%;
-    border: 2px solid white;
+    width: 50%;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    background-color: white;
 }
 
 #Register input {
     padding: 5px;
     margin-right: 1%;
     margin-left: 1%;
+    background-color: rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    width: 15%;
 }
 
 #Register button {
@@ -376,6 +402,11 @@ li {
 }
 
 @keyframes gradient {
+    /* 
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    */
     0% {
         background-position: 0% 50%;
     }
@@ -392,16 +423,14 @@ li {
 #Log-In {
     margin-top: 1%;
     margin-bottom: 1%;
-    width: 65%;
+    width: 50%;
     border: 2px solid white;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    background: linear-gradient(-45deg, #305cc9, #0fcbe0, #693dc9, #b14494);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    background-color: white;
 }
 
 #Log-In input {
@@ -423,12 +452,6 @@ li {
     transform: scale(1.05);
 }
 
-#databaseregister:hover {
-    background-color: darkcyan;
-}
-#databaselogin:hover {
-    background-color: darkcyan;
-}
 h5{
     font-family: monospace;
     color: rgb(218, 109, 109);
@@ -440,4 +463,13 @@ h5{
     margin-left: 30%;
     margin-right: 30%;
     text-align: center;
+}
+input:hover{
+    transform:scale(1.05);
+    border:2px solid darkcyan;
+}
+
+button:hover{
+    transform:scale(1.05);
+    border:2px solid darkcyan !important;
 }

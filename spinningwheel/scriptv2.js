@@ -52,8 +52,8 @@ function spinWheel() {
 }
 document.getElementById("standardbutton").addEventListener("click", function (event) {
     event.preventDefault();
-    if(document.getElementById("elements").children.length >3){
-        alert("Maximum 4 elements...");
+    if(document.getElementById("elements").children.length >0){
+        alert("There are already elements...");
         return;
     }
     let list = ["Döner","Shawarma","Mensa","Anderes"]
