@@ -52,6 +52,10 @@ function spinWheel() {
 }
 document.getElementById("standardbutton").addEventListener("click", function (event) {
     event.preventDefault();
+    if(document.getElementById("elements").children.length >3){
+        alert("Maximum 4 elements...");
+        return;
+    }
     let list = ["Döner","Shawarma","Mensa","Anderes"]
     for(let i = 0; i<4;i++){
         document.getElementById("wheelinput").value = list[i];
