@@ -497,3 +497,9 @@ footer{
     font-family: monospace;
     font-size: large;
 }
+#forgotpasswort{
+    margin-left: 3%;
+    border: 2px solid darkcyan !important;
+    color:black !important;
+    background-color: white !important;
+}
