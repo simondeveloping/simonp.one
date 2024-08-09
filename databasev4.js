@@ -2,6 +2,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
@@ -18,12 +21,15 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const analytics = getAnalytics(app);
 
 const db = getDatabase(app);
+const auth = getAuth(app);
 
-document.getElementById("databaseregister").addEventListener("click", function (event) {
+document.getElementById("databaseregister").addEventListener("click", async function (event) {
     event.preventDefault();
+
     let username = document.getElementById("usernameregister").value;
     let mail = document.getElementById("mailregister").value;
     let password = document.getElementById("passwordregister").value;
@@ -31,66 +37,107 @@ document.getElementById("databaseregister").addEventListener("click", function (
         alert("Invalid!");
         return;
     }
-    if (!mail.includes("@") && !mail.includes(".")) {
+    if (!mail.includes("@") || !mail.includes(".")) {
         alert("Mail invalid!");
         return;
     }
-    set(ref(db, 'user/' + username), {
-        username: username,
-        email: mail,
-        password: password
-    });
-    alert("Success! You are now registered");
-    document.getElementById("usernameregister").value = '';
-    document.getElementById("mailregister").value = '';
-    document.getElementById("passwordregister").value = '';
-})
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, mail, password);
+        const user = userCredential.user;
+        sendEmailVerification(auth.currentUser)
+            .then(() => {
+                // Email verification sent!
+                alert("You are now registered. Please verify your email!");
+                // ...
+            });
+        set(ref(db, 'user/' + username), {
+            username: username,
+            email: await sha256(mail),
+        });
+        document.getElementById("usernameregister").value = '';
+        document.getElementById("mailregister").value = '';
+        document.getElementById("passwordregister").value = '';
 
-document.getElementById("databaselogin").addEventListener("click", function (event) {
+    } catch (error) {
+        alert("Invalid. There is an error...Maybe this email is already in use.");
+    }
+});
+
+
+document.getElementById("databaselogin").addEventListener("click", async function (event) {
     event.preventDefault();
-    let username = document.getElementById("usernamelogin").value;
+    let email = document.getElementById("emaillogin").value;
     let password = document.getElementById("passwordlogin").value;
-    if (!username || !password) {
+    if (!email || !password) {
         alert("Invalid!");
         return;
     }
-    let usersRef = ref(db, 'user');
-    // Alle Benutzer abrufen
-    get(usersRef).then((snapshot) => {
-        var user;
-        if (snapshot.exists()) {
-            let users = snapshot.val();
-            let userFound = false;
-            // Durch alle Benutzer iterieren
-            for (let key in users) {
-                if (users[key].username === username && users[key].password === password) {
-                    userFound = true;
-                    user = users[key];
-                    break;
+    let mail = await sha256(email);
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        // Überprüfen, ob die E-Mail-Adresse verifiziert ist
+        if (user.emailVerified) {
+            alert("Success! You are logged in.");
+            let usersRef = ref(db, 'user');
+            get(usersRef).then((snapshot) => {
+                var user;
+                if (snapshot.exists()) {
+                    let users = snapshot.val();
+                    let userFound = false;
+                    // Durch alle Benutzer iterieren
+                    for (let key in users) {
+                        if (users[key].email === mail) {
+                            userFound = true;
+                            user = users[key];
+                            break;
+                        }
+                    }
+                    if (userFound) {
+                        document.getElementById("loginas").innerHTML = "Logged in as: " + "<u>" + user.username + "</u>";
+                        document.getElementById("passwordforprivat").disabled = false;
+                    }
                 }
-            }
-            if (userFound) {
-                alert("Login Successful!");
-                document.getElementById("loginas").innerHTML += "<u>" + user.username + "</u>";
-            } else {
-                alert("Invalid credentials!");
-            }
+            }).catch((error) => {
+                console.error("Error getting data: ", error);
+                alert("There was an error logging in.");
+            });
         } else {
-            alert("No users found!");
+            alert("You need to verify your email first!");
+            await auth.signOut(); // Abmelden, bis die E-Mail verifiziert ist
         }
-    }).catch((error) => {
-        console.error("Error getting data: ", error);
-        alert("There was an error logging in.");
-    });
+    } catch (error) {
+        alert("Invalid login attempt. Please check your email and password and try again.");
+    }
+
 })
-document.getElementById("loginbuttonforprivat").addEventListener("click", function (event) {
+document.getElementById("forgotpasswort").addEventListener("click", function (event) {
     event.preventDefault();
-    let password = document.getElementById("passwordforprivat").value;
+    let email = document.getElementById("emaillogin").value;
+    if (!email) {
+        alert("Please enter the email address you want to reset in the login box.");
+        return;
+    }
+    sendPasswordResetEmail(auth, email)
+        .then(() => {
+            alert("Email send! Reset your password...");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert("Error. Not able to reset Password...");
+        });
+})
+
+
+document.getElementById("loginbuttonforprivat").addEventListener("click", async function (event) {
+    event.preventDefault();
+    let password = await sha256(document.getElementById("passwordforprivat").value);
     if (!password) {
         alert("Invalid");
         return;
     }
-    get(ref(db, 'password')).then((snapshot) => {
+    get(ref(db,'password')).then((snapshot) => {
         if (snapshot.exists()) {
             let dbpassword = snapshot.val();
             if (dbpassword === password) {
@@ -111,3 +158,12 @@ document.getElementById("loginbuttonforprivat").addEventListener("click", functi
         alert("Error");
     });
 })
+async function sha256(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
