@@ -13,6 +13,9 @@ body {
     margin-bottom: 3%;
     margin-top: 2%;
     width: auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
 }
 
 .containerforoverlay {
@@ -34,6 +37,14 @@ body {
     border: 2px solid rgb(255, 255, 255);
 }
 
+.overlay a:hover {
+    text-shadow: 0 0 100px #00ecb5;
+}
+
+.overlay:hover {
+    transform: scale(1.05);
+}
+
 .overlaytitle {
     display: flex;
     height: 50%;
@@ -52,19 +63,36 @@ body {
 
 .projectbox {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    background-color: rgb(0, 0, 0);
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.197);
+    width: 60%;
     height: auto;
     font-size: large;
-    flex-wrap: wrap;
-    margin-bottom: 4%;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
+@media (max-width: 768px) {
+    .projectbox {
+        width: 100%;
+        overflow-y:hidden;
+        overflow-x: scroll;
+    }
+}
+
+.projectboxoverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    height: auto;
+    width: 60%;
+}
 .sectiontitle {
     font-size: 2rem;
     margin-bottom: 1%;
+    margin-top: 1%;
 }
 
 .horizontalrule {
@@ -78,16 +106,39 @@ body {
 }
 
 .projectboxes {
-    width: 300px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-color: white;
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 3%;
-    margin-left: 1%;
-    margin-right: 1%;
+    text-align: center;
+    flex-direction: column;
+    margin:1%;
+    flex-shrink: 0;
+    font-size: medium;
+}
+@media (max-width:768px){
+    .projectboxes{
+        height: 200px;
+        width: 200px;
+    }
+    .projectboxoverlay{
+        width: 100%;
+    }
+}
+p{
+    font-family: monospace;
+}
+.projectboxesdescription{
+    font-size: large;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    
+}
+.projectboxes:hover {
+    transform: scale(1.05);
 }
 
 h2 {
@@ -112,7 +163,7 @@ a:hover {
 .animated-title {
     font-family: monospace;
     overflow: hidden;
-    animation: typing 4s steps(11) forwards;
+    animation: typing 4s steps(15) forwards;
 }
 
 @keyframes typing {
@@ -121,17 +172,18 @@ a:hover {
     }
 
     to {
-        width: 11ch;
+        width: 15ch;
     }
 }
 
 h {
     color: white;
     font-family: monospace;
+    font-size: 1.8rem;
 }
 
 .blink-animation {
-    animation: blink 2s steps(1, end) infinite;
+    animation: blink 3s steps(1, end) infinite;
 }
 
 @keyframes blink {
@@ -144,6 +196,10 @@ h {
     50% {
         opacity: 0;
     }
+}
+
+.headercolor {
+    color: darkcyan;
 }
 
 .aboutthispage {
@@ -183,13 +239,6 @@ h {
     text-align: center;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 5%;
-    color: white;
-    font-family: monospace;
-    font-size: large;
-}
 
 input {
     background-color: black;
@@ -222,10 +271,7 @@ h3 {
     border-radius: 12px;
     padding: 5px;
     padding-left: 2px;
-}
-
-.suggestionbutton:hover {
-    background-color: darkcyan;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .suggestionheader {
@@ -245,19 +291,82 @@ li {
     font-size: medium;
 }
 
-.paybox {
-    width: 25%;
-    height: auto;
-    padding: 10px;
-    border-radius: 12px;
-    text-align: center;
+.containerforpay {
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 3%;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    animation: payboxanimation 2s infinite;
-    word-break: break-word;
+}
+
+.payboxright {
+    width: 20%;
+}
+
+.paytext {
+    white-space: nowrap;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: monospace;
+    margin-left: 5%;
+    /*
+    animation: specialtyping 6s steps(13) infinite;
+    */
+    overflow: hidden;
+    width: 13ch;
+
+}
+
+@keyframes specialtyping {
+
+    0%,
+    100% {
+        width: 0;
+    }
+
+    50% {
+        width: 13ch;
+    }
+}
+
+.paybox {
+    background-color: black;
+    color: white;
+    animation: payboxanimation 3s infinite;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-family: monospace;
+}
+
+h6 {
+    font-size: 2rem;
+    color: white;
+}
+
+.blink-animation2 {
+    animation: blink2 2s infinite;
+    color: #23d5ab;
+    font-size: 2.5rem;
+}
+
+@keyframes blink2 {
+
+    0%,
+    100% {
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
 }
 
 #pay {
@@ -265,24 +374,14 @@ li {
 }
 
 @keyframes payboxanimation {
-    0% {
-        border: 2px solid rgb(125, 229, 240);
-    }
 
-    25% {
-        border: 2px solid rgb(41, 228, 228);
+    0%,
+    100% {
+        border: 4px solid #23d5ab;
     }
 
     50% {
-        border: 2px solid rgb(12, 208, 182);
-    }
-
-    75% {
-        border: 2px solid rgb(0, 180, 229);
-    }
-
-    100% {
-        border: 2px solid rgb(125, 229, 240);
+        border: 4px solid white;
     }
 }
 
@@ -300,9 +399,9 @@ li {
 
 .privateprojectbox {
     margin-top: 2%;
-    width: 300px;
+    width: 200px;
     background-color: hsla(0, 0%, 100%, 0.471);
-    height: 150px;
+    height: 200px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -311,17 +410,39 @@ li {
     margin-right: 1%;
     font-size: x-large;
     font-family: monospace;
-}
+    flex-shrink: 0;
 
+}
+.privateprojectoverlay{
+    width: 60%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4%;
+}
 .privatestuffbox {
     width: 100%;
     height: auto;
     display: flex;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
+    justify-content: start;
+    overflow:hidden;
 }
-
+@media (max-width:768px){
+    .privateprojectoverlay{
+        width: 100%;
+    }
+    .privateprojectbox{
+        width: 200px;
+        height: 200px;
+    }
+    .arrow{
+        display: none;
+    }
+    .privatestuffbox{
+        overflow-y:hidden;
+        overflow-x: scroll;
+    }
+}
 .privateprojectbox a {
     color: rgb(0, 0, 0);
 }
@@ -330,7 +451,7 @@ li {
     color: darkcyan;
 }
 
-#loginbutton {
+#loginbuttonforprivat {
     font-family: monospace;
     font-size: medium;
     background-color: black;
@@ -340,25 +461,23 @@ li {
     padding: 3px;
 }
 
-#loginbutton:hover {
-    background-color: darkcyan;
-}
-
 #Register {
-    width: auto;
-    border: 2px solid white;
+    width: 900px;
     border-radius: 12px;
-    padding: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    background-color: white;
 }
 
 #Register input {
     padding: 5px;
     margin-right: 1%;
     margin-left: 1%;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 19%;
 }
 
 #Register button {
@@ -371,12 +490,16 @@ li {
 }
 
 #Register:hover {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    transform: scale(1.05);
 }
 
 @keyframes gradient {
+
+    /* 
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    */
     0% {
         background-position: 0% 50%;
     }
@@ -392,21 +515,22 @@ li {
 
 #Log-In {
     margin-top: 1%;
-    margin-bottom: 3%;
-    width: auto;
+    margin-bottom: 1%;
+    width: 900px;
     border: 2px solid white;
     border-radius: 12px;
-    padding: 10px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    background-color: white;
 }
 
 #Log-In input {
     padding: 5px;
     margin-right: 1%;
     margin-left: 1%;
+    width: 19%;
 }
 
 #Log-In button {
@@ -419,28 +543,152 @@ li {
 }
 
 #Log-In:hover {
-    background: linear-gradient(-45deg, #305cc9, #0fcbe0, #693dc9, #b14494);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    transform: scale(1.05);
 }
 
-@keyframes gradient {
+.containerforlogin {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+h5 {
+    font-family: monospace;
+    color: rgb(218, 109, 109);
+    font-size: x-large;
+}
+
+.warningforlogin {
+    width: 90%;
+    height: auto;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+}
+
+input:hover {
+    transform: scale(1.05);
+    border: 2px solid darkcyan;
+}
+
+button:hover {
+    transform: scale(1.05);
+    border: 2px solid darkcyan !important;
+}
+
+footer {
+    margin-top: 5%;
+    color: white;
+    font-family: monospace;
+    font-size: large;
+    text-align: center;
+}
+
+#forgotpasswort {
+    margin-left: 3%;
+    border: 2px solid darkcyan !important;
+    color: black !important;
+    background-color: white !important;
+}
+
+.bigtitle {
+    width: 100%;
+    height: 40vh;
+    border: 5px solid rgb(255, 255, 255);
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(128, 128, 128, 0.266);
+}
+
+.bigtitle h1 {
+    font-family: monospace;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    z-index: 1;
+    width: 100%;
+    bottom: -50%;
+    position: absolute;
+    animation: title 5s forwards;
+    margin-top: 10%;
+}
+
+@keyframes title {
     0% {
-        background-position: 0% 50%;
+        bottom: -50%;
     }
 
-    50% {
-        background-position: 100% 50%;
+    75% {
+        bottom: 20%;
     }
 
     100% {
-        background-position: 0% 50%;
+        bottom: 15%;
     }
 }
 
-#databaseregister:hover {
-    background-color: darkcyan;
+.bigtitle img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.5;
 }
-#databaselogin:hover {
-    background-color: darkcyan;
+
+.linkbox {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.linkbox a {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.arrow {
+    color: white;
+    font-size: x-large;
+    width: 4%;
+    height: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: black;
+    border:1px solid white;
+    border-radius: 12px;
+}
+@media(max-width:768px){
+    .arrow{
+        width: 10%;
+    }
+}
+.bg-1{
+    background-color: rgba(160, 160, 160, 0.197);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.bg-2{
+    background-color: rgba(141, 171, 235, 0.197);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1%;
+    margin-top: 1%;
 }
