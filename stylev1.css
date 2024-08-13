@@ -745,7 +745,7 @@ footer {
     width: 60%;
     background-color: rgb(255, 255, 255);
     display: flex;
-    overflow: scroll;
+    overflow-x: scroll;
     justify-content: start;
     border-radius: 12px;
     margin-bottom: 5%;
