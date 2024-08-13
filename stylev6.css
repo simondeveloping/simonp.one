@@ -65,7 +65,7 @@ body {
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.197);
+    background-color: rgba(61, 61, 61, 0.197);
     width: 60%;
     height: auto;
     font-size: large;
@@ -76,6 +76,8 @@ body {
 @media (max-width: 768px) {
     .projectbox {
         width: 100%;
+        overflow-y: hidden;
+        overflow-x: scroll;
     }
 }
 
@@ -87,6 +89,7 @@ body {
     height: auto;
     width: 60%;
 }
+
 .sectiontitle {
     font-size: 2rem;
     margin-bottom: 1%;
@@ -112,29 +115,52 @@ body {
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    margin:1%;
     flex-shrink: 0;
     font-size: medium;
 }
-@media (max-width:768px){
-    .projectboxes{
+
+@media (max-width:768px) {
+    .projectboxes {
         height: 200px;
         width: 200px;
     }
-    .projectboxoverlay{
+
+    .projectboxoverlay {
         width: 100%;
     }
 }
-p{
+
+
+@media (max-width:1366px) {
+    .projectboxes {
+        height: 200px;
+        width: 200px;
+    }
+
+    .projectboxoverlay {
+        width: 100%;
+    }
+    .projectbox{
+        width: 70%;
+        overflow-x: scroll;
+        scrollbar-color: rgb(117, 144, 233) darkcyan;
+    }
+    .arrow{
+        display: none;
+    }
+}
+p {
     font-family: monospace;
 }
-.projectboxesdescription{
+
+.projectboxesdescription {
     font-size: large;
     height: 50%;
     display: flex;
     justify-content: center;
-    
+
 }
+
 .projectboxes:hover {
     transform: scale(1.05);
 }
@@ -146,6 +172,7 @@ h2 {
 
 .projectboxlink {
     color: black;
+    margin: 1%;
 }
 
 a {
@@ -279,10 +306,6 @@ h3 {
     height: auto;
 }
 
-#suggestionsub {
-    margin-bottom: 5%;
-}
-
 li {
     color: white;
     font-family: monospace;
@@ -396,7 +419,7 @@ h6 {
 }
 
 .privateprojectbox {
-    margin-top: 2%;
+    margin: 1%;
     width: 200px;
     background-color: hsla(0, 0%, 100%, 0.471);
     height: 200px;
@@ -411,27 +434,60 @@ h6 {
     flex-shrink: 0;
 
 }
-.privateprojectoverlay{
+
+.privateprojectoverlay {
     width: 60%;
     height: auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 4%;
 }
+
 .privatestuffbox {
     width: 100%;
     height: auto;
     display: flex;
     justify-content: start;
-    overflow:hidden;
+    overflow: hidden;
 }
-@media (max-width:768px){
-    .privateprojectoverlay{
+
+@media (max-width:768px) {
+    .privateprojectoverlay {
         width: 100%;
     }
-    .privateprojectbox{
+
+    .privateprojectbox {
         width: 200px;
         height: 200px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .privatestuffbox {
+        width: 90%;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width:1366px) {
+    .privateprojectoverlay {
+        width: 100%;
+    }
+
+    .privateprojectbox {
+        width: 200px;
+        height: 200px;
+    }
+    .privatestuffbox {
+        width: 70%;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        scrollbar-color: rgb(117, 144, 233) darkcyan;
+        scrollbar-width: 5px;
     }
 }
 .privateprojectbox a {
@@ -440,6 +496,11 @@ h6 {
 
 .privateprojectbox a:hover {
     color: darkcyan;
+}
+
+.privateboxlink {
+    color: rgb(44, 43, 43);
+    margin: 1%;
 }
 
 #loginbuttonforprivat {
@@ -606,7 +667,11 @@ footer {
     bottom: -50%;
     position: absolute;
     animation: title 5s forwards;
-    margin-top: 10%;
+}
+@media (max-width:1920px){
+    .bigtitle h1{
+        font-size: 3rem;
+    }
 }
 
 @keyframes title {
@@ -632,6 +697,16 @@ footer {
     opacity: 0.5;
 }
 
+@media (max-width:768px) {
+    .bigtitle img {
+        display: none;
+    }
+
+    .bigtitle {
+        display: none;
+    }
+}
+
 .linkbox {
     height: auto;
     width: 100%;
@@ -647,6 +722,11 @@ footer {
     margin-right: 4%;
 }
 
+.linkbox a:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 50px white;
+}
+
 .arrow {
     color: white;
     font-size: x-large;
@@ -655,26 +735,24 @@ footer {
     margin-left: 5%;
     margin-right: 5%;
     background-color: black;
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 12px;
 }
-@media(max-width:768px){
-    .arrow{
-        width: 10%;
-    }
-}
-.bg-1{
-    background-color: rgba(160, 160, 160, 0.197);
-    display:flex;
+
+
+.bg-1 {
+    background-color: rgb(34, 34, 34);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
-.bg-2{
-    background-color: rgba(141, 171, 235, 0.197);
-    display:flex;
+
+.bg-2 {
+    background-color: rgba(61, 61, 61, 0.197);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -682,4 +760,132 @@ footer {
     width: 100%;
     margin-bottom: 1%;
     margin-top: 1%;
+}
+
+.feedback {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.feedbackoverlay {
+    width: 100%;
+    background-color: rgba(61, 61, 61, 0.197);
+    display: flex;
+    overflow:hidden;
+    justify-content: start;
+    border-radius: 12px;
+    margin-bottom: 5%;
+}
+
+.feedbackbox {
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+    margin: 2%;
+    border: 1px solid rgb(241, 241, 241);
+    color: rgb(0, 0, 0);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.feedbackbox:hover {
+    box-shadow: 0 10px 20px rgb(178, 178, 178);
+}
+
+.feedbackoverlayforarrow{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media(max-width:1366px) {
+    .feedbackoverlayforarrow {
+        width: 100%;
+    }
+    .feedbackoverlay{
+        width: 80%;
+        overflow-x: scroll;
+        scrollbar-color: rgb(117, 144, 233) darkcyan;
+    }
+    .feedbackbox {
+        height: 150px;
+        width: 200px;
+    }
+}
+@media(max-width:768px) {
+    .feedbackoverlayforarrow {
+        width: 100%;
+    }
+    .feedbackoverlay{
+        overflow: scroll;
+    }
+    .feedbackbox {
+        height: 150px;
+        width: 200px;
+    }
+}
+.feedbacktitle {
+    font-size: medium;
+    color: black;
+}
+
+.feedbackdes {
+    font-family: monospace;
+    height: 50%;
+    word-break: break-all;
+}
+
+.ratestars {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.star {
+    font-size: 1.5em;
+    color: #FFD43B;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.star.selected {
+    color: #FFD43B;
+}
+
+.star.unselected {
+    color: #ddd;
+}
+#buttonforfeedback{
+    border-radius: 12px;
+    border:2px solid darkcyan;
+    background-color: black;
+    color:white;
+    padding:10px;
+    margin-bottom: 2%;
+}
+.green{
+    color:#a7ff6c;
+}
+.blue{
+    color:#74C0FC;
+}
+.red{
+    color:#f15873;
+}
+
+::-webkit-scrollbar-track {
+    background: #81ddff;
 }
