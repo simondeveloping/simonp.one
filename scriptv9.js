@@ -53,3 +53,24 @@ function scrollRight(){
         behavior:"smooth"
     })
 }
+document.getElementById("arrowfbleft").addEventListener("click",function(event){
+    event.preventDefault();
+    scrollLeft();
+})
+document.getElementById("arrowfbright").addEventListener("click",function(event){
+    event.preventDefault();
+    scrollRight();
+})
+function scrollLeft(){
+    document.querySelector(".feedbackoverlay").scrollBy({
+        left:-200,
+        behavior:"smooth"
+    })
+}
+function scrollRight(){
+    document.querySelector(".feedbackoverlay").scrollBy({
+        left:200,
+        behavior:"smooth"
+    })
+}
+
