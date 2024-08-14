@@ -104,7 +104,7 @@ ScrollReveal().reveal('.privatestuffbox', {
 ScrollReveal().reveal('.aboutthispagelayer', {
     origin: 'bottom',
     distance: '100px',
-    duration: 1000,
+    duration:1000,
     easing: 'ease-in-out',
     delay: 600,
     reset:true
