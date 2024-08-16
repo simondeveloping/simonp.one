@@ -889,7 +889,7 @@ footer {
     background: #81ddff;
 }
 .aboutmecontainer{
-    width: 10vw;
+    width: 100%;
     height: 10vh;
     background-color: white;
     border-radius: 12px;

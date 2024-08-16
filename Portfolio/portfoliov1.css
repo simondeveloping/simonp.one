@@ -62,6 +62,7 @@ section{
     display: flex;
     text-align: center;
     flex-direction: column;
+    left:0;
 }
 a{
     color:white;
@@ -88,15 +89,36 @@ p{
     display: flex;
     flex-direction: row;
     margin-top: 2%;
+    flex-wrap: wrap;
 }
 .aboutpic{
     width: 50%;
-    height: 100%;
+    height: auto;   
 }
 .abouttext{
     width: 30%;
     height: 100%;
 }
+@media(max-width:768px){
+    .aboutpic{
+        width: 100%;
+        height: auto;
+    }
+    .abouttext{
+        width: 100%;
+        height: auto;
+        margin-bottom: 10%;
+    }
+}
+@media(min-width:768px) and (max-width:1366px){
+   
+    .abouttext{
+        width: 50%;
+        height: auto;
+        margin-bottom: 10%;
+    }
+}
+
 .skills{
     margin-top:1%;
     width: 60%;
