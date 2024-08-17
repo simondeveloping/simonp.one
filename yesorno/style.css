@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(224, 189, 145);
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2%;
+  align-items: center;
+}
+.pic{
+    width: 60%;
+    height:60%;
+    z-index: -1;
+    position: relative;
+}
+#stop{
+    width: 30%;
+    height: auto;
+    z-index:20;
+    background-color: rgba(0, 255, 255, 0);
+    border:0px;
+}
+
+@media (max-width:768px){
+    .pic{
+        left: -150%;
+    }
+}
+h{
+    font-family: monospace;
+    margin-top: 5%;
+}
