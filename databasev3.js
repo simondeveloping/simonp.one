@@ -26,7 +26,7 @@ const analytics = getAnalytics(app);
 
 const db = getDatabase(app);
 const auth = getAuth(app);
-
+/*
 document.getElementById("databaseregister").addEventListener("click", async function (event) {
     event.preventDefault();
 
@@ -52,21 +52,21 @@ document.getElementById("databaseregister").addEventListener("click", async func
             });
         set(ref(db, 'user/' + username), {
             username: username,
-            email: await sha256(mail),
+            email: await sha256(tolowerCase(mail)),
         });
         document.getElementById("usernameregister").value = '';
         document.getElementById("mailregister").value = '';
         document.getElementById("passwordregister").value = '';
 
     } catch (error) {
-        alert("Invalid. There is an error...");
+        alert("Invalid. There is an error...Maybe this email is already in use.");
     }
 });
 
 
 document.getElementById("databaselogin").addEventListener("click", async function (event) {
     event.preventDefault();
-    let email = document.getElementById("emaillogin").value;
+    let email = tolowerCase(document.getElementById("emaillogin").value);
     let password = document.getElementById("passwordlogin").value;
     if (!email || !password) {
         alert("Invalid!");
@@ -95,7 +95,6 @@ document.getElementById("databaselogin").addEventListener("click", async functio
                     }
                     if (userFound) {
                         document.getElementById("loginas").innerHTML = "Logged in as: " + "<u>" + user.username + "</u>";
-                        document.getElementById("passwordforprivat").disabled = false;
                     }
                 }
             }).catch((error) => {
@@ -128,7 +127,7 @@ document.getElementById("forgotpasswort").addEventListener("click", function (ev
             alert("Error. Not able to reset Password...");
         });
 })
-
+*/
 
 document.getElementById("loginbuttonforprivat").addEventListener("click", async function (event) {
     event.preventDefault();
@@ -144,9 +143,10 @@ document.getElementById("loginbuttonforprivat").addEventListener("click", async 
                 document.getElementById("privatebox1").href = "/pinguin/pinguin";
                 document.getElementById("privatebox2").href = "/pinguin/pinguin";
                 document.getElementById("privatebox3").href = "/pinguin/pinguin";
-                document.getElementById("privateboxout1").style.backgroundColor = "white";
-                document.getElementById("privateboxout2").style.backgroundColor = "white";
-                document.getElementById("privateboxout3").style.backgroundColor = "white";
+                let elements = document.querySelectorAll(".privateprojectbox");
+                elements.forEach(function (element) {
+                    element.style.backgroundColor = "white";
+                })
             } else {
                 alert("Wrong Password");
             }
@@ -167,3 +167,112 @@ async function sha256(text) {
     return hashHex;
 }
 
+let selectedRating = 0;
+const stars = document.querySelectorAll('.star');
+
+stars.forEach(star => {
+    star.addEventListener('mouseover', function () {
+        const value = this.getAttribute('data-value');
+        updateStarClasses(value);
+    });
+
+    star.addEventListener('mouseout', function () {
+        updateStarClasses(selectedRating);
+    });
+
+    star.addEventListener('click', function () {
+        selectedRating = this.getAttribute('data-value');
+        updateStarClasses(selectedRating);
+    });
+});
+
+function updateStarClasses(rating) {
+    stars.forEach(star => {
+        const value = star.getAttribute('data-value');
+        if (value <= rating) {
+            star.classList.add('selected');
+            star.classList.remove('unselected');
+        } else {
+            star.classList.remove('selected');
+            star.classList.add('unselected');
+        }
+    });
+}
+
+let feedbacklist = [];
+document.getElementById("buttonforfeedback").addEventListener("click", function (event) {
+    event.preventDefault();
+    
+
+    const msg = document.getElementById("suggestioninput").value;
+    if(feedbacklist.includes(msg)){
+        alert("Message already exists...");
+        return;
+    }
+    feedbacklist.push(msg);
+    if (selectedRating === 0) {
+        alert("Please select a rating.");
+        return;
+    }
+
+    set(ref(db, 'feedback/' + new Date()), {  
+        message: msg,
+        rating: selectedRating
+    }).then(() => {
+        alert("Thank you for your feedback!");
+        loadFeedback();  
+        document.getElementById("suggestioninput").innerHTML="";
+    }).catch((error) => {
+        console.error("Error writing to Firebase Database:", error);
+        alert("There was an error submitting your feedback. Please try again.");
+    });
+});
+
+function loadFeedback() {
+    const feedbackRef = ref(db, 'feedback/');
+
+    get(feedbackRef).then((snapshot) => {
+        if (snapshot.exists()) {
+            const feedbackData = snapshot.val();
+            const feedbackOverlay = document.querySelector(".feedbackoverlay");
+
+            feedbackOverlay.innerHTML = '';
+
+            Object.keys(feedbackData).forEach(key => {
+                const feedbackMessage = feedbackData[key].message;
+                const feedbackRating = feedbackData[key].rating;
+
+                const feedbackBox = document.createElement("div");
+                feedbackBox.className = "feedbackbox";
+
+                const feedbackDes = document.createElement("div");
+                feedbackDes.className = "feedbackdes";
+                feedbackDes.textContent = feedbackMessage;
+
+                const feedbackTitle = document.createElement("div");
+                feedbackTitle.className = "feedbacktitle";
+                feedbackTitle.innerHTML = getStars(feedbackRating);
+
+                feedbackBox.appendChild(feedbackTitle);
+                feedbackBox.appendChild(feedbackDes);
+
+                feedbackOverlay.appendChild(feedbackBox);
+            });
+        } else {
+            console.log("No feedback available.");
+        }
+    }).catch((error) => {
+        console.error("Error reading from Firebase Database:", error);
+    });
+}
+
+function getStars(rating) {
+    const maxStars = 5;
+    let stars = '';
+    for (let i = 1; i <= maxStars; i++) {
+        stars += `<span class="star">${i <= rating ? '★' : '☆'}</span>`;
+    }
+    return stars;
+}
+
+window.onload = loadFeedback;
