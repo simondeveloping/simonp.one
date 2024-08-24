@@ -1,0 +1,9 @@
+{
+    "name": "calculator",
+    "short_name": "calc",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "/rechner.html"
+  }

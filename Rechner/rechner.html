@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="base">
+        <input placeholder="0" readonly id="value">
+        <div class="symbolbox">
+            <button class="symbol lightgray" id="ac">
+                <p>AC</p>
+            </button>
+            <button class="symbol lightgray" id="operator">
+                <p>+/-</p>
+            </button>
+            <button class="symbol lightgray" id="percent">
+                <p>%</p>
+            </button>
+            <button class="symbol orange" id="divide">
+                <p>/</p>
+            </button>
+            <button class="symbol gray" id="seven">
+                <p>7</p>
+            </button>
+            <button class="symbol gray" id="eight">
+                <p>8</p>
+            </button>
+            <button class="symbol gray" id="nine">
+                <p>9</p>
+            </button>
+            <button class="symbol orange" id="multiply">
+                <p>x</p>
+            </button>
+            <button class="symbol gray" id="four">
+                <p>4</p>
+            </button>
+            <button class="symbol gray" id="five">
+                <p>5</p>
+            </button>
+            <button class="symbol gray" id="six">
+                <p>6</p>
+            </button>
+            <button class="symbol orange" id="minus">
+                <p>-</p>
+            </button>
+            <button class="symbol gray" id="one">
+                <p>1</p>
+            </button>
+            <button class="symbol gray" id="two">
+                <p>2</p>
+            </button>
+            <button class="symbol gray" id="three">
+                <p>3</p>
+            </button>
+            <button class="symbol orange" id="plus">
+                <p>+</p>
+            </button>
+            <button class="symbolLong gray" id="zero">
+                <p>0</p>
+            </button>
+            <button class="symbol gray" id="point">
+                <p>.</p>
+            </button>
+            <button class="symbol orange" id="equal">
+                <p>=</p>
+            </button>
+        </div>
+    </div>
+
+    <script src="calc.js"></script>
+</body>
+</html>
