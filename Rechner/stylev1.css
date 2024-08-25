@@ -10,7 +10,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: end;
-    margin-bottom: 20%;
+    position: relative;
+    bottom: 10%;
 }
 .symbol{
     border-radius: 50%;
