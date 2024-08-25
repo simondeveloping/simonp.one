@@ -10,6 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: end;
+    margin-bottom: 20%;
 }
 .symbol{
     border-radius: 50%;
