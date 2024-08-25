@@ -4,6 +4,6 @@
     "theme_color": "#2196f3",
     "background_color": "#2196f3",
     "display": "fullscreen",
-    "scope": "/Rechner",
-    "start_url": "/rechner.html"
+    "scope": "/Rechner/",
+    "start_url": "/Rechner/rechner.html"
   }
