@@ -1,3 +1,4 @@
+/*
 document.getElementById("suggestionform").addEventListener("submit", function (event) {
     event.preventDefault();
     addToList();
@@ -12,6 +13,7 @@ function addToList() {
         document.getElementById("suggestioninput").value = '';
     }
 }
+*/
 
 document.getElementById("arrowleft").addEventListener("click",function(event){
     event.preventDefault();
@@ -22,13 +24,13 @@ document.getElementById("arrowright").addEventListener("click",function(event){
     scrollRight1();
 })
 function scrollLeft1(){
-    document.querySelector(".projectbox").scrollBy({
+    document.querySelector(".miniprojectbox").scrollBy({
         left:-200,
         behavior:"smooth"
     })
 }
 function scrollRight1(){
-    document.querySelector(".projectbox").scrollBy({
+    document.querySelector(".miniprojectbox").scrollBy({
         left:200,
         behavior:"smooth"
     })
@@ -73,7 +75,6 @@ function scrollRight2(){
         behavior:"smooth"
     })
 }
-
 ScrollReveal().reveal('.sectiontitle', {
     origin: 'bottom',
     distance: '50px',
@@ -83,7 +84,7 @@ ScrollReveal().reveal('.sectiontitle', {
     reset:true
 });
 
-ScrollReveal().reveal('.projectbox', {
+ScrollReveal().reveal('.miniprojectbox', {
     origin: 'bottom',
     distance: '100px',
     duration: 1000,
@@ -93,7 +94,7 @@ ScrollReveal().reveal('.projectbox', {
 });
 
 ScrollReveal().reveal('.privatestuffbox', {
-    origin: 'buttom',
+    origin: 'bottom',
     distance: '100px',
     duration: 1000,
     easing: 'ease-in-out',
@@ -102,9 +103,9 @@ ScrollReveal().reveal('.privatestuffbox', {
 });
 
 ScrollReveal().reveal('.aboutthispagelayer', {
-    origin: 'right',
+    origin: 'bottom',
     distance: '100px',
-    duration: 1000,
+    duration:1000,
     easing: 'ease-in-out',
     delay: 600,
     reset:true
@@ -116,4 +117,46 @@ ScrollReveal().reveal('.feedbackoverlay', {
     easing: 'ease-in-out',
     delay: 600,
     reset:true
+});
+ScrollReveal().reveal('.aboutmecontainer', {
+    origin: 'bottom',
+    distance: '100px',
+    duration: 1000,
+    easing: 'ease-in-out',
+    delay: 600,
+    reset:true
+});
+let numberDays;
+let maxNumberDays;
+const year = new Date().getFullYear();
+const firstDayInYear = new Date(new Date().getFullYear(),0,1);
+const currentDay = new Date();
+
+function percent(){
+    if((year % 4 ===0 && year % 100 !== 0) || year % 400 === 0){
+        maxNumberDays = 366;
+    }else{
+        maxNumberDays = 365;
+    }
+    numberDays = Math.round(Math.abs(firstDayInYear - currentDay) / (1000 * 60 * 60 *24))
+}
+function days(){
+    let filled =document.getElementById("timefilled");
+    let percent= (numberDays / maxNumberDays) * 100;
+    filled.style.width = percent + "%";
+    document.getElementById("daysOver").innerHTML = numberDays + " / "+ maxNumberDays +" Days";
+    document.getElementById("daysPercent").innerHTML = percent.toFixed(1) + "%";
+    document.getElementById("currentYear").innerHTML += year;
+}
+percent();
+days();
+if(window.matchMedia("(max-width: 768px)").matches){
+    document.querySelector(".projectbox").classList.add("hidden");
+}
+document.getElementById("closeProject").addEventListener("click",function(){
+    if(!document.querySelector(".projectbox").classList.contains("hidden")){
+    document.querySelector(".projectbox").classList.add("hidden");
+    }else{
+        document.querySelector(".projectbox").classList.remove("hidden");
+    }
 });
