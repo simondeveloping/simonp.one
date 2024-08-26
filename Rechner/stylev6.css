@@ -88,6 +88,11 @@ input{
     background-color: rgba(72, 72, 72, 0.833);
     color:white;
 }
+img{
+    width: 7%;
+    height: 14%;
+    border-radius: 12px;
+}
 @media (max-width:768px){
     .base{
         width: 100%;
@@ -96,17 +101,17 @@ input{
     input{
         font-size: 5rem;
     }
+    img{
+        width: 7vh;
+        height: 7vh;
+    }
 }
 @media (min-width:1366px){
     .base{
         width: 20%;
     }
 }
-img{
-    width: 7%;
-    height: 14%;
-    border-radius: 12px;
-}
+
 hr{
     width: 40%;
     border: 1px solid white;
