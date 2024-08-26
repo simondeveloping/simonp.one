@@ -5,7 +5,7 @@
     "background_color": "black",
     "display": "fullscreen",
     "scope": "/Calculator/",
-    "start_url": "/Calculator/calculator.html",
+    "start_url": "/Calculator/calc.html",
     "icons": [
         {
             "src": "/Calculator/icon.jpg",
