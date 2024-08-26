@@ -140,5 +140,7 @@ function addOperation(selectedOperator, button) {
 }
 document.getElementById("percent").addEventListener("click", function (event) {
   event.preventDefault();
-  input.value = parseFloat(input.value.replace(".", ",")) / 100;
+  let tmp = parseFloat(input.value.replace(",", ".")) / 100;
+  input.value = tmp.toString().replace(".", ",");
+  reset = true;
 });
