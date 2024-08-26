@@ -2,7 +2,7 @@ document.getElementById("preview").addEventListener("click", function (event) {
   event.preventDefault();
   document.querySelector(".overlay").classList.add("hide");
 });
-if(window.navigator.standalone){
+if (window.navigator.standalone) {
   document.querySelector(".overlay").classList.add("hide");
 }
 
@@ -13,8 +13,8 @@ let operator = null;
 let reset = false;
 let input = document.getElementById("value");
 input.value = "0";
-function updateClear(){
-  if(input.value !== "0") {
+function updateClear() {
+  if (input.value !== "0") {
     document.getElementById("ac").textContent = "C";
   } else {
     document.getElementById("ac").textContent = "AC";
@@ -27,7 +27,7 @@ document.querySelectorAll(".gray").forEach((button) =>
   button.addEventListener("click", function (event) {
     event.preventDefault();
     let number = this.textContent.trim();
-    if(reset){
+    if (reset) {
       input.value = "";
       reset = false;
     }
@@ -80,7 +80,11 @@ document.getElementById("equal").addEventListener("click", function (event) {
   } else if (operator === "/") {
     sum = value1 / value2;
   }
-  input.value = sum.toString().replace(".", ",");
+  if (sum % 1 === 0) {
+    input.value = sum.toString().replace(".", ",");
+  } else {
+    input.value = sum.toFixed(2).toString().replace(".", ",");
+  }
   value1 = sum;
   operator = null;
   reset = true;
@@ -104,10 +108,15 @@ document.getElementById("divide").addEventListener("click", function (event) {
 });
 function resetColors() {
   document.getElementById("plus").style.backgroundColor = "orange";
+  document.getElementById("plus").style.color = "white";
   document.getElementById("minus").style.backgroundColor = "orange";
+  document.getElementById("minus").style.color = "white";
   document.getElementById("multiply").style.backgroundColor = "orange";
+  document.getElementById("multiply").style.color = "white";
   document.getElementById("divide").style.backgroundColor = "orange";
+  document.getElementById("divide").style.color = "white";
 }
+
 function addOperation(selectedOperator, button) {
   if (operator !== null && !reset) {
     value2 = parseFloat(input.value.replace(",", "."));
@@ -126,5 +135,10 @@ function addOperation(selectedOperator, button) {
   operator = selectedOperator;
   reset = true;
   resetColors();
-  button.style.backgroundColor = "rgb(245, 204, 91)";
+  button.style.backgroundColor = "white";
+  button.style.color = "orange";
 }
+document.getElementById("percent").addEventListener("click", function (event) {
+  event.preventDefault();
+  input.value = parseFloat(input.value.replace(",", ".")) / 100;
+});
