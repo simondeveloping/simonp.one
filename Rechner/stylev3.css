@@ -2,6 +2,9 @@ body{
     background-color: rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .base{
     width: 30%;
@@ -10,9 +13,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: end;
-    position: relative;
-    left:35%;
-    bottom: 10%;
+    margin-bottom: 10%;
 }
 .symbol{
     border-radius: 50%;
@@ -76,5 +77,13 @@ input{
 @media (max-width:768px){
     .base{
         width: 100%;
+    }
+    input{
+        font-size: 5rem;
+    }
+}
+@media (min-width:1366px){
+    .base{
+        width: 20%;
     }
 }

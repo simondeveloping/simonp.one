@@ -11,6 +11,7 @@ document.getElementById("plus").addEventListener("click", function (event) {
 document.querySelectorAll(".gray").forEach((button) =>
   button.addEventListener("click", function (event) {
     event.preventDefault();
+    input.value = "";
     let number = this.textContent.trim();
     resetColors();
     if (number === "," && input.value.includes(",")) {
@@ -102,7 +103,6 @@ function addOperation(selectedOperator, button) {
     value1 = parseFloat(input.value.replace(",", "."));
   }
   operator = selectedOperator;
-  input.value = "";
   resetColors();
   button.style.backgroundColor = "rgb(245, 204, 91)";
 }
