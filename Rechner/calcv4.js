@@ -2,7 +2,9 @@ document.getElementById("preview").addEventListener("click", function (event) {
   event.preventDefault();
   document.querySelector(".overlay").classList.add("hide");
 });
-
+if(window.navigator.standalone){
+  document.querySelector(".overlay").classList.add("hide");
+}
 
 let sum = null;
 let value1 = null;
