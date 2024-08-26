@@ -1,3 +1,9 @@
+document.getElementById("preview").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.querySelector(".overlay").classList.add("hide");
+});
+
+
 let sum = null;
 let value1 = null;
 let value2 = null;
@@ -5,6 +11,13 @@ let operator = null;
 
 let input = document.getElementById("value");
 input.value = "0";
+function updateClear(){
+  if(input.value !== "0") {
+    document.getElementById("ac").textContent = "C";
+  } else {
+    document.getElementById("ac").textContent = "AC";
+  }
+}
 document.getElementById("plus").addEventListener("click", function (event) {
   event.preventDefault();
 });
@@ -28,6 +41,7 @@ document.querySelectorAll(".gray").forEach((button) =>
     } else {
       input.value += number;
     }
+    updateClear();
   })
 );
 document.getElementById("ac").addEventListener("click", function (event) {
@@ -36,6 +50,7 @@ document.getElementById("ac").addEventListener("click", function (event) {
   value2 = null;
   sum = null;
   resetColors();
+  updateClear();
 });
 document.getElementById("sign").addEventListener("click", function (event) {
   event.preventDefault();
@@ -90,13 +105,13 @@ function resetColors() {
 function addOperation(selectedOperator, button) {
   if (operator !== null) {
     value2 = parseFloat(input.value.replace(",", "."));
-    if (selectedOperator === "+") {
+    if (operator === "+") {
       value1 += parseFloat(value2);
-    } else if (selectedOperator === "-") {
+    } else if (operator === "-") {
       value1 -= parseFloat(value2);
-    } else if (selectedOperator === "x") {
+    } else if (operator === "x") {
       value1 *= parseFloat(value2);
-    } else if (selectedOperator === "/") {
+    } else if (operator === "/") {
       value1 /= parseFloat(value2);
     }
   } else {

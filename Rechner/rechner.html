@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="stylev5.css">
+    <link rel="stylesheet" href="stylev6.css">
     <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
+    <div class="overlay">
+        <h1>How to use:</h1>
+        <img src="icon.jpg">
+        <h4>Calculator</h4>
+        <h3>
+            Created by Simon Pham
+        </h3>
+        <hr>
+        <p>
+            1.Open Safari on your Ipad
+            <img src="https://raw.githubusercontent.com/Lake-e/iPad-Calculator/main/images/safari-icon.jpeg" id="safari">
+        </p>
+        <p>2.Tap the Share button
+            <img src="https://help.apple.com/assets/5D5C549A0946227A3D4D97C7/5D5C54AD0946227A3D4D97FB/en_US/cadc928b998b9ce31be75d6bffa0de65.png" id="share">
+        </p>
+        <p>
+            3. Tap "Add to Home Screen"
+        </p>
+        <button id="preview">Preview</button>
+    </div>
     <div class="base">
         <input readonly id="value">
         <div class="symbolbox">
@@ -71,6 +93,7 @@
         </div>
     </div>
 
-    <script src="calcv2.js"></script>
+    <script src="calcv3.js"></script>
 </body>
+
 </html>
