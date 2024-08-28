@@ -5,14 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev4.css">
+    <link rel="stylesheet" href="stylev6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
 <body>
-    <h class="animated-title title"><span class="blink-animation2 red">[ </span>simonp.one/<span
-            class="blink-animation2 blue">
-            ]</span></h>
+    <nav>
+        <div class="nav-home">
+            <button><i class="fa-solid fa-house"></i></button>
+            <div class="menu">
+                <button id="bar"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div class="bar hidden" id="menuBar">
+                <ul>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#Mini-Projects">Mini-Projects</a></li>
+                    <li><a href="#About-this-page">About-this-Page</a></li>
+                    <li><a href="#Feedback">Feedback</a></li>
+                    <li><a href="#Private-stuff">Private-Stuff</a></li>
+                    <li><a href="#About-me">About-me</a></li>
+                    <li><a href="#Support">Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#Projects">Projects</a>
+            <a href="#Mini-Projects">Mini-Projects</a>
+            <a href="#About-this-page">About-this-Page</a>
+            <a href="#Feedback">Feedback</a>
+            <a href="#Private-stuff">Private-Stuff</a>
+            <a href="#About-me">About-me</a>
+            <a href="#Support">Support</a>
+        </div>
+    </nav>
+    <div class="background-image">
+        <div class="home">
+            <h><span class="blink-animation2 red">[ </span>simonp.one/<span class="blink-animation2 blue">
+                    ]</span></h>
+        </div>
+
+    </div>
+
     <h3 id="currentYear" class="blue">Year: </h3>
     <div class="time">
         <div class="timefilled" id="timefilled">
@@ -22,10 +55,6 @@
     <p id="daysOver">
 
     </p>
-    <div class="bigtitle">
-        <img src="2.png">
-        <h1>Hello! I'm<br> Simon</h1>
-    </div>
     <div class="bg-2">
         <div class="linkbox">
             <a href="https://github.com/simondeveloping"><i class="fa-brands fa-github fa-bounce"
@@ -38,7 +67,8 @@
     </div>
     <div class="bg-2">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 blue">[ </span>Projects<span class="blink-animation2 red"> ]</span></h>
+            <h id="Projects"><span class="blink-animation2 blue">[ </span>Projects<span class="blink-animation2 red">
+                    ]</span></h>
         </div>
         <div class="horizontalrule">
             <hr>
@@ -51,7 +81,8 @@
                         <i class="fa-solid fa-calculator"></i> Calculator<span class="headercolor">/</span>
                     </h>
                     <div class="projectboxesdescription">
-                        <p>This is a calculator app designed for the iPad, featuring all the standard operations.<br><span class="blue">(Web App)</span></p>
+                        <p>This is a calculator app designed for the iPad, featuring all the standard
+                            operations.<br><span class="blue">(Web App)</span></p>
                     </div>
                 </div>
             </a>
@@ -89,7 +120,8 @@
     </div>
     <div class="bg-1">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 green">[ </span>Mini-Projects<span class="blink-animation2"> ]</span></h>
+            <h id="Mini-Projects"><span class="blink-animation2 green">[ </span>Mini-Projects<span
+                    class="blink-animation2"> ]</span></h>
         </div>
         <div class="horizontalrule">
             <hr>
@@ -154,7 +186,8 @@
     </div>
     <div class="bg-2">
         <div class="sectiontitle">
-            <h><span class="blink-animation2">[ </span>About this Page<span class="blink-animation2 red"> ]</span></h>
+            <h id="About-this-page"><span class="blink-animation2">[ </span>About this Page<span
+                    class="blink-animation2 red"> ]</span></h>
         </div>
         <div class="horizontalrulelarge">
             <hr>
@@ -193,7 +226,8 @@
     </div>
     <div class="bg-1">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 blue">[ </span>Feedback<span class="blink-animation2 green"> ]</span></h>
+            <h id="Feedback"><span class="blink-animation2 blue">[ </span>Feedback<span class="blink-animation2 green">
+                    ]</span></h>
         </div>
         <div class="horizontalrule">
             <hr>
@@ -222,7 +256,8 @@
     </div>
     <div class="bg-2">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 red">[ </span>Private Stuff<span class="blink-animation2"> ]</span></h>
+            <h id="Private-stuff"><span class="blink-animation2 red">[ </span>Private Stuff<span
+                    class="blink-animation2"> ]</span></h>
         </div>
         <div class="horizontalrulelarge">
             <hr>
@@ -263,7 +298,8 @@
     </div>
     <div class="bg-1">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 green">[ </span>About me<span class="blink-animation2 blue"> ]</span></h>
+            <h id="About-me"><span class="blink-animation2 green">[ </span>About me<span class="blink-animation2 blue">
+                    ]</span></h>
         </div>
         <div class="horizontalrulelarge">
             <hr>
@@ -276,7 +312,7 @@
     </div>
     <div class="bg-2">
         <div class="sectiontitle">
-            <h><span class="blink-animation2 ">[ </span>Support<span class="blink-animation2 red">
+            <h id="Support"><span class="blink-animation2 ">[ </span>Support<span class="blink-animation2 red">
                     ]</span></h>
         </div>
         <div class="horizontalrulelarge">
@@ -296,6 +332,7 @@
     </footer>
     <script type="module" src="databasev4.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="scriptv2.js"></script>
+    <script src="scriptv4.js"></script>
 </body>
+
 </html>
