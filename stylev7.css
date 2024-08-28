@@ -1079,7 +1079,8 @@ nav a:hover::after{
 }
 @media (max-width: 768px){
   .background-image{
-    width: 100%;
+    width: 50%;
+    height: 50%;
   }
   .menu{
     display: block;
