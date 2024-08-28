@@ -1080,18 +1080,17 @@ nav a:hover::after{
 @media (max-width: 768px){
   .background-image{
     background-image: url("5fQUPDl.jpg");
-    background-size: contain;
     background-attachment: scroll;	
-    width: 100%;
+    width: 100%;;
   }
   .menu{
     display: block;
-    left:60vw;
+    left:50vw;
   }
   .nav-links{
     display: none;
   }
   .nav-home{
-    margin-left: 20%;
+    margin-left: 10%;
   }
 }
