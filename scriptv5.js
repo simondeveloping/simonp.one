@@ -182,6 +182,11 @@ document.getElementById("bar").addEventListener("click",function(e){
     let bar = document.getElementById("menuBar");
     bar.classList.toggle("open");
     this.classList.add("hidden");
+    if(bar.classList.contains("open")){
+        this.classList.add("hidden");
+    }else{
+        this.classList.remove("hidden");
+    }
 });
 document.addEventListener("click", function(e) {
     let bar = document.getElementById("menuBar");
@@ -189,6 +194,6 @@ document.addEventListener("click", function(e) {
 
     if (!bar.contains(e.target) && !barButton.contains(e.target)) {
         bar.classList.remove("open"); 
-        document.getElementById("bar").classList.remove("hidden");
+        barButton.classList.remove("hidden");
     }
 });

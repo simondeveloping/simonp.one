@@ -1060,13 +1060,13 @@ nav a:hover::after{
   top:0;
   left:90vw;
   color:white;
-  display: none;
+  display: block;
   z-index: 1000;
 }
 .bar{
   width: 50vw;
   background-color: rgba(160, 158, 158, 0.692);
-  position: absolute;
+  position: fixed;
   right: -60vw;
   height: 100vh;
   transition: right 0.5s ease;
