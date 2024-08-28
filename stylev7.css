@@ -1079,19 +1079,19 @@ nav a:hover::after{
 }
 @media (max-width: 768px){
   .background-image{
-    background-image: url("test.png");
+    background-image: url("5fQUPDl.jpg");
     background-size: contain;
     background-attachment: scroll;	
-    height: auto;
+    width: 100%;
   }
   .menu{
     display: block;
-    left:80vw;
+    left:60vw;
   }
   .nav-links{
     display: none;
   }
   .nav-home{
-    margin-left: 5%;
+    margin-left: 20%;
   }
 }
