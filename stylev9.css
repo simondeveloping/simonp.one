@@ -1041,7 +1041,7 @@ nav a:hover::after{
   font-family: monospace;
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .background-image{
   background-image: url("5fQUPDl.jpg");
