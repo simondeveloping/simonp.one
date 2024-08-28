@@ -1085,7 +1085,7 @@ nav a:hover::after{
   }
   .menu{
     display: block;
-    left:70vw;
+    left:60vw;
   }
   .nav-links{
     display: none;
