@@ -1080,7 +1080,8 @@ nav a:hover::after{
 @media (max-width: 768px){
   .background-image{
     background-image: url("test.png");
-
+    background-size: contain;
+    height: auto;
   }
   .menu{
     display: block;
