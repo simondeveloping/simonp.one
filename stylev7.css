@@ -1081,6 +1081,7 @@ nav a:hover::after{
   .background-image{
     background-image: url("test.png");
     background-size: contain;
+    background-attachment: scroll;	
     height: auto;
   }
   .menu{
