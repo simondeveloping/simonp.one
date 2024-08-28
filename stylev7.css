@@ -1041,7 +1041,7 @@ nav a:hover::after{
   z-index: 1;
 }
 .background-image{
-  background-image: url("5fQUPDl.jpg");
+  background-image: url("background.jpg");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
