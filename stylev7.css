@@ -1078,6 +1078,9 @@ nav a:hover::after{
   width: fit-content;
 }
 @media (max-width: 768px){
+  .background-image{
+    width: 100%;
+  }
   .menu{
     display: block;
     left:80vw;
