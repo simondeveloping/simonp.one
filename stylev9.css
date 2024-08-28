@@ -5,6 +5,7 @@ body {
   height: auto;
   flex-flow: column;
   background-color: black;
+  overflow-x: hidden;
 }
 
 .title {
@@ -89,7 +90,7 @@ body {
   height: auto;
   width: 60%;
 }
-.miniprojectboxoverlay:hover .arrow{
+.miniprojectboxoverlay:hover .arrow {
   display: block;
 }
 .sectiontitle {
@@ -119,6 +120,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
   font-size: medium;
+  transition: 0.5s;
 }
 
 @media (max-width: 768px) {
@@ -364,25 +366,6 @@ h6 {
   }
 }
 
-#pay {
-  font-size: x-large;
-}
-
-@keyframes payboxanimation {
-  0%,
-  100% {
-    border: 4px solid #23d5ab;
-  }
-
-  50% {
-    border: 4px solid white;
-  }
-}
-
-.paybox:hover {
-  transform: scale(1.05);
-}
-
 #login-form {
   display: flex;
   justify-content: center;
@@ -424,7 +407,7 @@ h6 {
   justify-content: start;
   overflow: hidden;
 }
-.privateprojectoverlay:hover .arrow{
+.privateprojectoverlay:hover .arrow {
   display: block;
 }
 @media (max-width: 768px) {
@@ -703,13 +686,13 @@ footer {
 .arrow {
   color: white;
   font-size: x-large;
-  padding:5px 10px;
+  padding: 5px 10px;
   margin-left: 5%;
   margin-right: 5%;
   background-color: black;
   border: 1px solid white;
   border-radius: 50%;
-  display:none;
+  display: none;
 }
 
 .bg-1 {
@@ -754,7 +737,7 @@ footer {
   justify-content: start;
   border-radius: 12px;
 }
-.feedbackoverlayforarrow:hover .arrow{
+.feedbackoverlayforarrow:hover .arrow {
   display: block;
 }
 .feedbackbox {
@@ -769,6 +752,7 @@ footer {
   align-items: center;
   flex-direction: column;
   background-color: white;
+  transition: 0.5s;
 }
 
 .feedbackbox:hover {
@@ -790,6 +774,7 @@ footer {
   }
   .feedbackoverlay {
     overflow: scroll;
+    width: 100%;
   }
   .feedbackbox {
     height: 150px;
@@ -874,15 +859,14 @@ footer {
 .aboutmecontainer:hover {
   transform: scale(1.05);
   cursor: not-allowed;
-
 }
-.time{
+.time {
   width: 50%;
   height: 10vh;
   background-color: #74c1fc00;
-  border:2px solid white; 
+  border: 2px solid white;
 }
-.timefilled{
+.timefilled {
   height: 10vh;
   background-color: darkcyan;
   width: 0%;
@@ -891,63 +875,69 @@ footer {
   justify-content: center;
   align-items: center;
 }
-@media (max-width:768px){
-  .time{
+@media (max-width: 768px) {
+  .time {
     height: 5%;
+    width: 90%;
   }
-  .timefilled{
+  .timefilled {
     height: 5%;
   }
 }
-#daysOver{
-  color:white;
-}
-.percentage{
+#daysOver {
   color: white;
 }
-.watercontainer{
+.percentage {
+  color: white;
+}
+.watercontainer {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
 }
-.support{
+.support {
   width: 100%;
   height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border:5px solid darkcyan;
+  border: 5px solid darkcyan;
   padding: 30px;
   border-radius: 12px;
+  transition: 0.5s;
 }
-#water{
+#water {
   display: flex;
   align-items: center;
   transition: transform 0.5s ease;
-
 }
-.support:hover{
+.support:hover {
   transform: scale(1.05);
-  border:5px solid yellow;
+  border: 5px solid yellow;
 }
-.projectboxes{
+.projectboxes {
   width: 300px;
   height: 200px;
   border-radius: 10px;
-  border:3px solid white;
+  border: 3px solid white;
   display: flex;
   justify-content: center;
   text-align: center;
   flex-direction: column;
   flex-shrink: 0;
   font-size: medium;
-  color:white;
+  color: white;
   margin: 5%;
   margin-left: 20px;
   margin-right: 20px;
+  transition: 0.5s;
 }
-.projectbox{
+.projectboxes:hover {
+  transform: scale(1.05);
+  border:3px solid yellow;
+}
+.projectbox {
   width: 50%;
   height: auto;
   flex-direction: row;
@@ -956,23 +946,157 @@ footer {
   margin-bottom: 5%;
   flex-wrap: wrap;
 }
-.projectboxesdescription{
+.projectboxesdescription {
   font-size: large;
   height: 50%;
   display: flex;
   justify-content: center;
 }
-@media (max-width:1366px){
-  .projectbox{
+@media (max-width: 1366px) {
+  .projectbox {
     width: 80%;
   }
 }
-#closeProject{
-  color:white;
+#closeProject {
+  color: white;
   background-color: black;
-  border:none;
+  border: none;
   font-size: xx-large;
 }
-.hidden{
+.hidden {
   display: none;
+}
+@media (min-width: 768px) {
+  #closeProject {
+    display: none;
+  }
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-family: monospace;
+  z-index: 1000;
+}
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 1000;
+}
+.nav-home{
+  width: 5%;
+  display: flex;
+  justify-content: center;
+}
+nav p{
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+nav span{
+  font-size: 1.5rem;
+}
+nav a{
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.5s;
+  font-size: large;
+  z-index: 1000;
+  padding:10px;
+  display: flex;
+  text-align: center;
+}
+nav a::after{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: rgb(134, 192, 192);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.5s;
+  transition-timing-function: ease-in-out;
+}
+nav a:hover{
+  color: white;
+}
+nav a:hover::after{
+  width: 100%;
+}
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(129, 129, 129, 0.562);
+  color: white;
+  font-family: monospace;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+.background-image{
+  background-image: url("5fQUPDl.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -100;
+  width: 100vw;
+  position: relative;
+  bottom: 65px;
+}
+.menu{
+  position: relative;
+  top:0;
+  left:90vw;
+  color:white;
+  display: none;
+  z-index: 1000;
+}
+.bar{
+  width: 50vw;
+  background-color: rgba(160, 158, 158, 0.692);
+  position: absolute;
+  right: -60vw;
+  height: 100vh;
+  transition: right 0.5s ease;
+  z-index: 1;
+}
+.bar.open{
+  right: 0;
+}
+.nav-home button{
+  background-color:transparent;
+  border:none;
+  color:white;
+  font-size: x-large;
+}
+.bar a{
+  width: fit-content;
+}
+@media (max-width: 768px){
+  .background-image{
+    background-attachment: scroll;	
+    width: 100vw;
+  }
+  .menu{
+    display: block;
+    left:60vw;
+  }
+  .nav-links{
+    display: none;
+  }
+  .nav-home{
+    margin-left: 15%;
+  }
 }
