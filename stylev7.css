@@ -1081,16 +1081,16 @@ nav a:hover::after{
   .background-image{
     background-image: url("5fQUPDl.jpg");
     background-attachment: scroll;	
-    width: 100%;;
+    width: 100vw;
   }
   .menu{
     display: block;
-    left:50vw;
+    left:70vw;
   }
   .nav-links{
     display: none;
   }
   .nav-home{
-    margin-left: 10%;
+    margin-left: 15%;
   }
 }
