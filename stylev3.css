@@ -1093,7 +1093,7 @@ nav a:hover::after{
   .background-image{
     background-attachment: scroll;	
     width: 100vw;
-    background-position: center;
+    background-size: cover;
   }
   .menu{
     display: block;
@@ -1106,7 +1106,7 @@ nav a:hover::after{
     width:50vw;
   }
   .nav-home{
-    left:5%;
+    left:15%;
   }
 }
 
@@ -1115,8 +1115,7 @@ nav a:hover::after{
     width: 100vw;
     bottom:40px;
     background-attachment: scroll;
-    background-position: center;
-
+    background-size: cover;
   }
   .menu{
     display: block;
