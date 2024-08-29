@@ -584,7 +584,7 @@ input:hover {
 
 button:hover {
   transform: scale(1.05);
-  border: 2px solid darkcyan !important;
+  border: 2px solid darkcyan;
 }
 
 footer {
@@ -977,7 +977,6 @@ nav{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: auto;
   background-color: rgba(0, 0, 0, 0);
   color: white;
   font-family: monospace;
@@ -1044,7 +1043,7 @@ nav a:hover::after{
   overflow: hidden;
 }
 .background-image{
-  background-image: url("5fQUPDl.jpg");
+  background-image: url("background.jpg");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -1060,11 +1059,12 @@ nav a:hover::after{
   top:0;
   left:90vw;
   color:white;
-  display: none;
+  opacity: 100;
   z-index: 1000;
+  display: none;
 }
 .bar{
-  width: 50vw;
+  width: 30vw;
   background-color: rgba(160, 158, 158, 0.692);
   position: fixed;
   right: -60vw;
@@ -1087,6 +1087,7 @@ nav a:hover::after{
 .opacity0{
   opacity: 0;
 }
+
 @media (max-width: 768px){
   .background-image{
     background-attachment: scroll;	
@@ -1099,7 +1100,40 @@ nav a:hover::after{
   .nav-links{
     display: none;
   }
+  .bar{
+    width:50vw;
+  }
+}
+#test{
+  border:none !important;
+}
+@media (min-width:1000px) and (max-width: 1366px){
+  .html::before{
+    content:"";
+    display: block;
+    width: 100vw;
+    bottom:40px;
+    background-image: url("https://simonp.one/background.jpg");
+    background-position: center;
+    background-size:cover;
+    height: 100vh;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position:fixed;
+    z-index: -10;
+  }
+  .menu{
+    display: block;
+  }
+  .nav-links{
+    display: none;
+  }
   .nav-home{
-    margin-left: 15%;
+    margin-left:1%;
+  }
+  nav{
+    height: 30px;
   }
 }
