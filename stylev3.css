@@ -1115,8 +1115,6 @@ nav a:hover::after{
   .background-image{
     width: 100vw;
     bottom:40px;
-    background-attachment: scroll;
-    background-size: cover;
   }
   .menu{
     display: block;
@@ -1125,7 +1123,7 @@ nav a:hover::after{
     display: none;
   }
   .nav-home{
-    margin-left:1%;
+    left:1%;
   }
   nav{
     height: 30px;
