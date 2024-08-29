@@ -5,6 +5,7 @@ body {
   height: auto;
   flex-flow: column;
   background-color: black;
+  overflow-x: hidden;
 }
 
 .title {
@@ -583,7 +584,7 @@ input:hover {
 
 button:hover {
   transform: scale(1.05);
-  border: 2px solid darkcyan !important;
+  border: 2px solid darkcyan;
 }
 
 footer {
@@ -877,6 +878,7 @@ footer {
 @media (max-width: 768px) {
   .time {
     height: 5%;
+    width: 90%;
   }
   .timefilled {
     height: 5%;
@@ -975,7 +977,6 @@ nav{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: auto;
   background-color: rgba(0, 0, 0, 0);
   color: white;
   font-family: monospace;
@@ -991,6 +992,7 @@ nav{
   width: 5%;
   display: flex;
   justify-content: center;
+  position:relative;
 }
 nav p{
   font-size: 1.5rem;
@@ -1039,6 +1041,8 @@ nav a:hover::after{
   font-family: monospace;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  flex-direction: column;
 }
 .background-image{
   background-image: url("background.jpg");
@@ -1050,23 +1054,28 @@ nav a:hover::after{
   z-index: -100;
   width: 100vw;
   position: relative;
-  bottom: 65px;
+  bottom: 50px;
 }
 .menu{
   position: relative;
   top:0;
   left:90vw;
   color:white;
-  display: none;
+  opacity: 100;
   z-index: 1000;
+  display: none;
 }
 .bar{
-  width: 50vw;
+  width: 30vw;
   background-color: rgba(160, 158, 158, 0.692);
-  position: absolute;
-  left: 50%;
-  top:-10px;
-
+  position: fixed;
+  right: -60vw;
+  height: 90vh;
+  transition: right 0.5s ease;
+  z-index: 1;
+}
+.bar.open{
+  right: 0;
 }
 .nav-home button{
   background-color:transparent;
@@ -1077,11 +1086,15 @@ nav a:hover::after{
 .bar a{
   width: fit-content;
 }
+.opacity0{
+  opacity: 0;
+}
+
 @media (max-width: 768px){
   .background-image{
-    background-image: url("5fQUPDl.jpg");
     background-attachment: scroll;	
     width: 100vw;
+    background-size: cover;
   }
   .menu{
     display: block;
@@ -1090,7 +1103,60 @@ nav a:hover::after{
   .nav-links{
     display: none;
   }
-  .nav-home{
-    margin-left: 15%;
+  .bar{
+    width:50vw;
   }
+  .nav-home{
+    left:15%;
+  }
+}
+@media (max-width:1024px) and (orientation:portrait), (max-width: 1366px) and (min-device-width: 768px) and (max-device-width: 1024px){
+  .background-image{
+    width: 100vw;
+    bottom:40px;
+    background-attachment: scroll;	
+    background-size: cover;
+  }
+  .menu{
+    display: block;
+    left:85vw;
+    top:1vh;
+  }
+  .nav-links{
+    display: none;
+  }
+  .nav-home{
+    left:3% !important;
+    top:1vh;
+  }
+  nav{
+    height: 30px;
+  }
+}
+@media (min-width:1024px) and (max-width: 1366px){
+  .background-image{
+    width: 100vw;
+    bottom:40px;
+  }
+  .menu{
+    display: block;
+  }
+  .nav-links{
+    display: none;
+  }
+  .nav-home{
+    left:0%;
+  }
+  nav{
+    height: 30px;
+  }
+}
+#extendHome{
+  position: absolute;
+  top:90%;
+  font-size: x-large;
+  color:white;
+}
+.fa-beat-fade{
+  animation: fa-beat-fade 2s infinite !important;
 }
