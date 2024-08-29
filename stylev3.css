@@ -1093,6 +1093,7 @@ nav a:hover::after{
   .background-image{
     background-attachment: scroll;	
     width: 100vw;
+    background-position: center;
   }
   .menu{
     display: block;
@@ -1113,6 +1114,9 @@ nav a:hover::after{
   .background-image{
     width: 100vw;
     bottom:40px;
+    background-attachment: scroll;
+    background-position: center;
+
   }
   .menu{
     display: block;
