@@ -1115,7 +1115,7 @@ nav a:hover::after{
     width: 100vw;
     bottom:40px;
     background-attachment: scroll;
-    background-size: cover;
+    background-size: contain;
   }
   .menu{
     display: block;
