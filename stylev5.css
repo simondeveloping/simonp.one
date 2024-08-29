@@ -1069,7 +1069,7 @@ nav a:hover::after{
   background-color: rgba(160, 158, 158, 0.692);
   position: fixed;
   right: -60vw;
-  height: 100vh;
+  height: 90vh;
   transition: right 0.5s ease;
   z-index: 1;
 }
@@ -1119,14 +1119,14 @@ nav a:hover::after{
   .menu{
     display: block;
     left:85vw;
-    top:2vh;
+    top:1vh;
   }
   .nav-links{
     display: none;
   }
   .nav-home{
     left:3% !important;
-    top:2vh;
+    top:1vh;
   }
   nav{
     height: 30px;
