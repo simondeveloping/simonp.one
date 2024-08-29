@@ -1094,7 +1094,6 @@ nav a:hover::after{
     background-attachment: scroll;	
     width: 100vw;
     background-size: cover;
-    
   }
   .menu{
     display: block;
@@ -1110,8 +1109,27 @@ nav a:hover::after{
     left:15%;
   }
 }
-
-@media (min-width:1000px) and (max-width: 1366px){
+@media (max-width:1024px){
+  .background-image{
+    width: 100vw;
+    bottom:40px;
+    background-attachment: scroll;	
+    background-size: cover;
+  }
+  .menu{
+    display: block;
+  }
+  .nav-links{
+    display: none;
+  }
+  .nav-home{
+    left:3%;
+  }
+  nav{
+    height: 30px;
+  }
+}
+@media (min-width:1024px) and (max-width: 1366px){
   .background-image{
     width: 100vw;
     bottom:40px;
@@ -1123,7 +1141,7 @@ nav a:hover::after{
     display: none;
   }
   .nav-home{
-    left:1%;
+    left:0%;
   }
   nav{
     height: 30px;
