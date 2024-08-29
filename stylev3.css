@@ -1109,7 +1109,7 @@ nav a:hover::after{
     left:15%;
   }
 }
-@media (max-width:1366px) and (aspect-ratio: 4/3){
+@media (max-width:1366px) and (device-pixel-ratio:2){
   .background-image{
     width: 100vw;
     bottom:40px;
@@ -1129,7 +1129,7 @@ nav a:hover::after{
     height: 30px;
   }
 }
-@media (min-width:1024px) and (max-width: 1366px) and (aspect-ratio: 16/9){
+@media (min-width:1024px) and (max-width: 1366px){
   .background-image{
     width: 100vw;
     bottom:40px;
