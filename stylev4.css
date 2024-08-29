@@ -1123,7 +1123,7 @@ nav a:hover::after{
     display: none;
   }
   .nav-home{
-    left:5% !important;
+    left:3% !important;
   }
   nav{
     height: 30px;
@@ -1136,6 +1136,7 @@ nav a:hover::after{
   }
   .menu{
     display: block;
+    left:85vw;
   }
   .nav-links{
     display: none;
