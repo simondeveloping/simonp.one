@@ -1138,5 +1138,6 @@ nav a:hover::after{
   .background-image{
     width: 100vw;
     bottom:40px;
+    background:none;
   }
 }
