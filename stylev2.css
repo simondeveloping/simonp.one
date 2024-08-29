@@ -1108,7 +1108,7 @@ nav a:hover::after{
   border:none !important;
 }
 @media (min-width:1000px) and (max-width: 1366px){
-  .html::before{
+  .background-image{
     content:"";
     display: block;
     width: 100vw;
