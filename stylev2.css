@@ -1108,7 +1108,7 @@ nav a:hover::after{
   border:none !important;
 }
 @media (min-width:1000px) and (max-width: 1366px){
-  .background-image{
+  html::before{
     content:"";
     display: block;
     width: 100vw;
@@ -1122,7 +1122,7 @@ nav a:hover::after{
     left:0;
     right:0;
     position:fixed;
-    z-index: -10;
+    z-index: -1000;
   }
   .menu{
     display: block;
@@ -1135,5 +1135,9 @@ nav a:hover::after{
   }
   nav{
     height: 30px;
+  }
+  .background-image{
+    width: 100vw;
+    bottom:40px;
   }
 }
