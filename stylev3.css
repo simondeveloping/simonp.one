@@ -1129,7 +1129,7 @@ nav a:hover::after{
     height: 30px;
   }
 }
-@media (min-width:1024px) and (max-width: 1366px){
+@media (min-width:1024px) and (max-width: 1366px) and (aspect-ratio: 16/9){
   .background-image{
     width: 100vw;
     bottom:40px;
