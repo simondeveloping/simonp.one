@@ -4,8 +4,9 @@ body {
   align-items: center;
   height: auto;
   flex-flow: column;
-  background-color: black;
+  background-color:#0d0d0d;
   overflow-x: hidden;
+  background-attachment: fixed;
 }
 
 .title {
@@ -17,49 +18,6 @@ body {
   flex-direction: row;
   display: flex;
   align-items: center;
-}
-
-.containerforoverlay {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.overlay {
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
-  width: 900px;
-  height: 250px;
-  background-color: rgb(11, 11, 11);
-  margin-bottom: 4%;
-  border-radius: 30px;
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.overlay a:hover {
-  text-shadow: 0 0 100px #00ecb5;
-}
-
-.overlay:hover {
-  transform: scale(1.05);
-}
-
-.overlaytitle {
-  display: flex;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  font-size: xx-large;
-}
-
-.overlaylinks {
-  height: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: xx-large;
 }
 
 .miniprojectbox {
@@ -88,7 +46,7 @@ body {
   align-items: center;
   margin-bottom: 5%;
   height: auto;
-  width: 60%;
+  width: 90%;
 }
 .miniprojectboxoverlay:hover .arrow {
   display: block;
@@ -302,46 +260,6 @@ li {
   width: 20%;
 }
 
-.paytext {
-  white-space: nowrap;
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-family: monospace;
-  margin-left: 5%;
-  /*
-    animation: specialtyping 6s steps(13) infinite;
-    */
-  overflow: hidden;
-  width: 13ch;
-}
-
-@keyframes specialtyping {
-  0%,
-  100% {
-    width: 0;
-  }
-
-  50% {
-    width: 13ch;
-  }
-}
-
-.paybox {
-  background-color: black;
-  color: white;
-  animation: payboxanimation 3s infinite;
-  border-radius: 12px;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: x-large;
-  font-family: monospace;
-}
-
 h6 {
   font-size: 2rem;
   color: white;
@@ -389,7 +307,7 @@ h6 {
 }
 
 .privateprojectoverlay {
-  width: 60%;
+  width: 90%;
   height: auto;
   display: flex;
   align-items: center;
@@ -587,7 +505,7 @@ button:hover {
 
 footer {
   margin-top: 5%;
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: monospace;
   font-size: large;
   text-align: center;
@@ -663,12 +581,15 @@ footer {
 
 .linkbox {
   height: auto;
-  width: 100%;
+  width: 20%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 2rem;
   margin-bottom: 3%;
   margin-top: 3%;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  padding: 20px;
 }
 
 .linkbox a {
@@ -694,17 +615,20 @@ footer {
 }
 
 .bg-1 {
-  background-color: rgb(34, 34, 34);
+  background-color: rgba(17, 17, 17, 0.842);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 100%;
+  border-radius: 12px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .bg-2 {
-  background-color: rgba(61, 61, 61, 0.197);
+  background-color: rgba(37, 37, 37, 0.842);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -713,6 +637,7 @@ footer {
   width: 100%;
   margin-bottom: 1%;
   margin-top: 1%;
+  border-radius: 12px;
 }
 
 .feedback {
@@ -729,7 +654,7 @@ footer {
 
 .feedbackoverlay {
   width: 60%;
-  background-color: rgba(61, 61, 61, 0.197);
+  background-color: rgba(0, 0, 0, 0.197);
   display: flex;
   overflow: hidden;
   justify-content: start;
@@ -743,13 +668,13 @@ footer {
   height: 200px;
   border-radius: 20px;
   margin: 2%;
-  border: 1px solid rgb(241, 241, 241);
+  border: 2px solid rgb(0, 0, 0);
   color: rgb(0, 0, 0);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(173, 167, 187);
   transition: 0.5s;
 }
 
@@ -758,7 +683,7 @@ footer {
 }
 
 .feedbackoverlayforarrow {
-  width: 60%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -919,7 +844,7 @@ footer {
   width: 300px;
   height: 200px;
   border-radius: 10px;
-  border: 3px solid white;
+  border: 3px solid rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   text-align: center;
@@ -987,11 +912,53 @@ nav {
   justify-content: space-around;
   z-index: 1000;
 }
-.nav-home {
+.nav-profile {
   width: 5%;
   display: flex;
   justify-content: center;
   position: relative;
+}
+.profile{
+  width: 40vw;
+  background-color: rgb(106, 139, 111);
+  position: fixed;
+  left: -60vw;
+  height: 90vh;
+  transition: left 0.5s ease;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  font-size: large;
+}
+.profile i{
+  font-size: xx-large;
+}
+.profile img{
+  border-radius: 50%;
+  margin:5%;
+  height: auto;
+  width: auto;
+}
+.profile a:hover{
+  text-shadow: none;
+}
+.profile.open{
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .profile img{
+    width: 100%;
+    height: auto;
+  }
+  .profile p{
+    font-size: larger;
+  }
+  .profile i{
+    font-size: x-larger;
+  }
 }
 nav p {
   font-size: 1.5rem;
@@ -1076,7 +1043,7 @@ nav a:hover::after {
 .bar.open {
   right: 0;
 }
-.nav-home button {
+.nav-profile button {
   background-color: transparent;
   border: none;
   color: white;
@@ -1105,7 +1072,7 @@ nav a:hover::after {
   .bar {
     width: 50vw;
   }
-  .nav-home {
+  .nav-profile {
     left: 10vw;
   }
 }
@@ -1124,7 +1091,7 @@ nav a:hover::after {
   .nav-links {
     display: none;
   }
-  .nav-home {
+  .nav-profile {
     left: 3% !important;
     top: 1vh;
   }
@@ -1160,12 +1127,43 @@ nav a:hover::after {
   animation: fa-beat-fade 2s infinite !important;
 }
 .bg-3 {
-  background-color: rgb(6, 55, 61);
-  width: 90vw;
+  background-color: rgba(94, 85, 59, 0);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 12px;
   padding: 10px;
+  margin-top: -1%;
+}
+.bg-white{
+  background-color: white;
+}
+.bg-violett{
+  background-color: #885ac5;
+}
+.c-violett{
+  color: #885ac5;
+}
+.bg-blue{
+  background-color: #3577aa;
+}
+.c-blue{
+  color: #3577aa;
+}
+.bg-lightviolett{
+  background-color: #7471bb;
+}
+.c-lightviolett{
+  color: #7471bb;
+}
+.bg-lightblue{
+  background-color: #6da2ca;
+}
+.c-lightblue{
+  color: #6da2ca;
+}
+.bg-yellow{
+  background-color: #f5c464;
 }
