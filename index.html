@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev2.css">
+    <link rel="stylesheet" href="stylev3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
@@ -61,16 +61,20 @@
 
     </div>
     <i class="fa-solid fa-circle-chevron-down fa-beat-fade" id="extendHome"></i>
-    <div class="bg-3">
-        <h3 id="currentYear" class="blue">Year: </h3>
-        <div class="time">
-            <div class="timefilled" id="timefilled">
-                <h2 id="daysPercent" class="percentage"></h2>
+    <div class="bg-oval-row bg-blue">
+        <h id="lastYear"></h>
+        <div class="bg-3">
+            <h3 id="currentYear" class="blue">Year: </h3>
+            <div class="time">
+                <div class="timefilled" id="timefilled">
+                    <h2 id="daysPercent" class="percentage"></h2>
+                </div>
             </div>
-        </div>
-        <p id="daysOver">
+            <p id="daysOver">
 
-        </p>
+            </p>
+        </div>
+        <h id="nextYear"></h>
     </div>
     <div class="linkbox bg-white">
         <a href="https://github.com/simondeveloping"><i class="fa-brands fa-github fa-bounce"
@@ -198,10 +202,10 @@
             <button class="arrow" id="arrowright"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
-    <div class="bg-2">
+    <div class="bg-2 bg-oval bg-red">
         <div class="sectiontitle">
             <h id="About-this-page"><span class="blink-animation2">[ </span>About this Page<span
-                    class="blink-animation2 red"> ]</span></h>
+                    class="blink-animation2 green"> ]</span></h>
         </div>
         <div class="horizontalrulelarge">
             <hr>
@@ -209,7 +213,8 @@
         <div class="aboutthispage">
             <div class="aboutthispagelayer">
                 <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-blue"><strong>Intention</strong><span class="headercolor">/</span></div>
+                    <div class="aboutthispageheader c-blue"><strong>Intention</strong><span class="headercolor">/</span>
+                    </div>
                     <div class="aboutthispagetext">The primary intention of this site is to serve as a platform for
                         sharing
                         my
@@ -219,20 +224,23 @@
                     </div>
                 </div>
                 <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-lightviolett"><strong>Ideas</strong><span class="headercolor">/</span></div>
+                    <div class="aboutthispageheader c-lightviolett"><strong>Ideas</strong><span
+                            class="headercolor">/</span></div>
                     <div class="aboutthispagetext">- Games (Tic Tac Toe...)<br>- Animated stuff<br>-
                         Web apps<br>- Mobile applications</div>
                 </div>
             </div>
             <div class="aboutthispagelayer">
                 <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-violett"><strong>Improvement</strong><span class="headercolor">/</span>
+                    <div class="aboutthispageheader c-violett"><strong>Improvement</strong><span
+                            class="headercolor">/</span>
                     </div>
                     <div class="aboutthispagetext">- animations
                     </div>
                 </div>
                 <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-lightblue"><strong>FAQs</strong><span class="headercolor">/</span></div>
+                    <div class="aboutthispageheader c-lightblue"><strong>FAQs</strong><span class="headercolor">/</span>
+                    </div>
                     <div class="aboutthispagetext">- ...</div>
                 </div>
             </div>
@@ -306,17 +314,18 @@
                         Project4
                     </div>
                 </a>
+                <a id="privatebox5" class="privateboxlink">
+                    <div class="privateprojectbox bg-yellow">
+                        Project5
+                    </div>
+                </a>
             </div>
             <button class="arrow" id="privatearrowright"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
-    <div class="bg-1">
-        <div class="sectiontitle">
-            <h id="About-me"><span class="blink-animation2 green">[ </span>About me<span class="blink-animation2 blue">
-                    ]</span></h>
-        </div>
-        <div class="horizontalrulelarge">
-            <hr>
+    <div class="bg-4">
+        <div class="aboutmeText">
+            About Me
         </div>
         <a>
             <div class="aboutmecontainer">
@@ -324,29 +333,24 @@
             </div>
         </a>
     </div>
-    <div class="bg-2">
-        <div class="sectiontitle">
-            <h id="Support"><span class="blink-animation2 ">[ </span>Support<span class="blink-animation2 red">
-                    ]</span></h>
-        </div>
-        <div class="horizontalrulelarge">
-            <hr>
-        </div>
+    <div class="bg-5">
+
         <div class="watercontainer">
             <a href="https://paypal.me/simonpham2005" id="water">
-                <div class="support">
-                    <h3>Buy me a glass of water <i class="fa-brands fa-paypal"></i></h3>
-                </div>
+                <h3>Buy me a glass of water <i class="fa-brands fa-paypal"></i></h3>
             </a>
-            <img src="water.PNG">
+        </div>
+        <div class="supportText">
+            Support Me
         </div>
     </div>
+    <code>test</code>
     <footer>
         <p>Copyright </h><i class="fa-regular fa-copyright"></i> 2024 Simon - All Rights Reserved</p>
     </footer>
     <script type="module" src="databasev4.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="scriptv1.js"></script>
+    <script src="scriptv2.js"></script>
 </body>
 
 </html>
