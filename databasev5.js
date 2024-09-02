@@ -1,23 +1,37 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+  onValue,
+  runTransaction,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBHeguRsErT_IyEK-BGnydI1sLytXCIwiQ",
-    authDomain: "simonp-one.firebaseapp.com",
-    databaseURL: "https://simonp-one-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "simonp-one",
-    storageBucket: "simonp-one.appspot.com",
-    messagingSenderId: "592659738360",
-    appId: "1:592659738360:web:58e4e5094b70f2f807550d",
-    measurementId: "G-VN2MKCBZ38"
+  apiKey: "AIzaSyBHeguRsErT_IyEK-BGnydI1sLytXCIwiQ",
+  authDomain: "simonp-one.firebaseapp.com",
+  databaseURL:
+    "https://simonp-one-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "simonp-one",
+  storageBucket: "simonp-one.appspot.com",
+  messagingSenderId: "592659738360",
+  appId: "1:592659738360:web:58e4e5094b70f2f807550d",
+  measurementId: "G-VN2MKCBZ38",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -26,7 +40,7 @@ const analytics = getAnalytics(app);
 
 const db = getDatabase(app);
 const auth = getAuth(app);
-
+/*
 document.getElementById("databaseregister").addEventListener("click", async function (event) {
     event.preventDefault();
 
@@ -95,7 +109,6 @@ document.getElementById("databaselogin").addEventListener("click", async functio
                     }
                     if (userFound) {
                         document.getElementById("loginas").innerHTML = "Logged in as: " + "<u>" + user.username + "</u>";
-                        document.getElementById("passwordforprivat").disabled = false;
                     }
                 }
             }).catch((error) => {
@@ -128,42 +141,181 @@ document.getElementById("forgotpasswort").addEventListener("click", function (ev
             alert("Error. Not able to reset Password...");
         });
 })
+*/
 
-
-document.getElementById("loginbuttonforprivat").addEventListener("click", async function (event) {
+document
+  .getElementById("loginbuttonforprivat")
+  .addEventListener("click", async function (event) {
     event.preventDefault();
-    let password = await sha256(document.getElementById("passwordforprivat").value);
+    let password = await sha256(
+      document.getElementById("passwordforprivat").value
+    );
     if (!password) {
-        alert("Invalid");
-        return;
+      alert("Invalid");
+      return;
     }
-    get(ref(db,'password')).then((snapshot) => {
+    get(ref(db, "password"))
+      .then((snapshot) => {
         if (snapshot.exists()) {
-            let dbpassword = snapshot.val();
-            if (dbpassword === password) {
-                document.getElementById("privatebox1").href = "/pinguin/pinguin";
-                document.getElementById("privatebox2").href = "/pinguin/pinguin";
-                document.getElementById("privatebox3").href = "/pinguin/pinguin";
-                document.getElementById("privateboxout1").style.backgroundColor = "white";
-                document.getElementById("privateboxout2").style.backgroundColor = "white";
-                document.getElementById("privateboxout3").style.backgroundColor = "white";
-            } else {
-                alert("Wrong Password");
-            }
+          let dbpassword = snapshot.val();
+          if (dbpassword === password) {
+            document.getElementById("privatebox1").href = "/pinguin/pinguin";
+            document.getElementById("privatebox2").href = "/pinguin/pinguin";
+            document.getElementById("privatebox3").href = "/pinguin/pinguin";
+            let elements = document.querySelectorAll(".privateprojectbox");
+            elements.forEach(function (element) {
+              element.style.backgroundColor = "white";
+            });
+          } else {
+            alert("Wrong Password");
+          }
         } else {
-            alert("No password found in the database!");
+          alert("No password found in the database!");
         }
-    }).catch((error) => {
+      })
+      .catch((error) => {
         console.error("Error getting data: ", error);
         alert("Error");
-    });
-})
+      });
+  });
 async function sha256(text) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
-    return hashHex;
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+  return hashHex;
 }
 
+let selectedRating = 0;
+const stars = document.querySelectorAll(".star");
+
+stars.forEach((star) => {
+  star.addEventListener("mouseover", function () {
+    const value = this.getAttribute("data-value");
+    updateStarClasses(value);
+  });
+
+  star.addEventListener("mouseout", function () {
+    updateStarClasses(selectedRating);
+  });
+
+  star.addEventListener("click", function () {
+    selectedRating = this.getAttribute("data-value");
+    updateStarClasses(selectedRating);
+  });
+});
+
+function updateStarClasses(rating) {
+  stars.forEach((star) => {
+    const value = star.getAttribute("data-value");
+    if (value <= rating) {
+      star.classList.add("selected");
+      star.classList.remove("unselected");
+    } else {
+      star.classList.remove("selected");
+      star.classList.add("unselected");
+    }
+  });
+}
+
+document
+  .getElementById("buttonforfeedback")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const msg = document.getElementById("suggestioninput").value;
+    if (selectedRating === 0) {
+      alert("Please select a rating.");
+      return;
+    }
+
+    set(ref(db, "feedback/" + new Date()), {
+      message: msg,
+      rating: selectedRating,
+    })
+      .then(() => {
+        alert("Thank you for your feedback!");
+        loadFeedback();
+        document.getElementById("suggestioninput").innerHTML = "";
+      })
+      .catch((error) => {
+        console.error("Error writing to Firebase Database:", error);
+        alert("There was an error submitting your feedback. Please try again.");
+      });
+  });
+
+function loadFeedback() {
+  const feedbackRef = ref(db, "feedback/");
+
+  get(feedbackRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const feedbackData = snapshot.val();
+        const feedbackOverlay = document.querySelector(".feedbackoverlay");
+
+        feedbackOverlay.innerHTML = "";
+
+        Object.keys(feedbackData).forEach((key) => {
+          const feedbackMessage = feedbackData[key].message;
+          const feedbackRating = feedbackData[key].rating;
+
+          const feedbackBox = document.createElement("div");
+          feedbackBox.className = "feedbackbox";
+
+          const feedbackDes = document.createElement("div");
+          feedbackDes.className = "feedbackdes";
+          feedbackDes.textContent = feedbackMessage;
+
+          const feedbackTitle = document.createElement("div");
+          feedbackTitle.className = "feedbacktitle";
+          feedbackTitle.innerHTML = getStars(feedbackRating);
+
+          feedbackBox.appendChild(feedbackTitle);
+          feedbackBox.appendChild(feedbackDes);
+
+          feedbackOverlay.appendChild(feedbackBox);
+        });
+      } else {
+        console.log("No feedback available.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error reading from Firebase Database:", error);
+    });
+}
+
+function getStars(rating) {
+  const maxStars = 5;
+  let stars = "";
+  for (let i = 1; i <= maxStars; i++) {
+    stars += `<span class="star">${i <= rating ? "★" : "☆"}</span>`;
+  }
+  return stars;
+}
+
+window.onload = loadFeedback;
+
+function visitorCounter() {
+  const counterRef = ref(db, "visitCounter");
+
+  runTransaction(counterRef, (currentValue) => {
+    return (parseInt(currentValue, 10) || 0) + 1;
+  });
+}
+
+window.onload = function () {
+  visitorCounter();
+
+  const visitCounter = document.getElementById("visitorCounter");
+
+  if (visitCounter) {
+    const counterRef = ref(db, "visitCounter");
+    onValue(counterRef, (snapshot) => {
+      const tmp = snapshot.val();
+      visitCounter.textContent = `Visitor Counter: ${tmp}`;
+    });
+  }
+};
