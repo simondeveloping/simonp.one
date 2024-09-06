@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev4.css">
+    <link rel="stylesheet" href="stylev5.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
@@ -60,98 +60,124 @@
         </div>
 
     </div>
-    <i class="fa-solid fa-circle-chevron-down fa-beat-fade" id="extendHome"></i>
-    <div class="bg-oval-row">
-        <h id="lastYear"></h>
-        <div class="bg-3">
-            <h3 id="currentYear" class="blue"><i class="fa-solid fa-calendar-days"></i> Year: </h3>
-            <div class="time">
-                <div class="timefilled" id="timefilled">
-                    <h2 id="daysPercent" class="percentage"></h2>
+    <div class="bg-6">
+        <i class="fa-solid fa-circle-chevron-down fa-beat-fade" id="extendHome"></i>
+        <div class="linkbox bg-white">
+            <a href="https://github.com/simondeveloping"><i class="fa-brands fa-github fa-bounce"
+                    style="color: #74C0FC;"></i></a>
+            <a href="https://www.instagram.com/simonp_25/"><i class="fa-brands fa-instagram"
+                    style="color: #f15873;"></i></a>
+            <a href="mailto:simon.pham@web.de"><i class="fa-regular fa-envelope  fa-spin"
+                    style="color: #a7ff6c;"></i></a>
+        </div>
+        <div class="bg-oval-row">
+            <div class="timebox">
+                <h id="lastYear"></h>
+                <hr>
+                <h>100%</h>
+            </div>
+            <div class="bg-3">
+                <h3 id="currentYear" class="blue"><i class="fa-solid fa-calendar-days"></i> Year: </h3>
+                <div class="time">
+                    <div class="timefilled" id="timefilled">
+                        <h2 id="daysPercent" class="percentage"></h2>
+                    </div>
+                </div>
+                <p id="daysOver">
+
+                </p>
+            </div>
+            <div class="timebox">
+                <h id="nextYear"></h>
+                <hr>
+                <h>0%</h>
+            </div>
+        </div>
+        <div class="visitorCounter" id="visitorCounter">
+        </div>
+    </div>
+    <div class="box">
+        <div class="line"></div>
+    </div>
+
+    <div class="bg-projects">
+        <div class="projectHeader">
+            <div class="sectiontitle">
+                <h id="Projects"><span class="blink-animation2 blue">[ </span>Projects<span
+                        class="blink-animation2 red">
+                        ]</span></h>
+            </div>
+            <p>This is a section for my own projects. The goal of these projects is to simplify everday life. They are
+                still in progress...</p>
+        </div>
+        <div class="containerForProject">
+            <div class="projectbox">
+                <a href="/Calculator/calc" class="projectboxlink">
+                    <div class="projectboxes">
+                        <h>
+                            <i class="fa-solid fa-calculator"></i> Calculator<span class="headercolor">/</span>
+                        </h>
+                        <div class="projectboxesdescription">
+                            <p>This is a calculator app designed for the iPad, featuring all the standard
+                                operations.<br><span class="blue">(Web App)</span></p>
+                        </div>
+                    </div>
+                </a>
+                <a class="projectboxlink">
+                    <div class="projectboxes">
+                        <h>
+                            <span class="red">Empty</span><span class="headercolor">/</span>
+                        </h>
+                        <div class="projectboxesdescription">
+                            <p>Space for new future projects...</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="projectboxlink">
+                    <div class="projectboxes">
+                        <h>
+                            <span class="red">Empty</span><span class="headercolor">/</span>
+                        </h>
+                        <div class="projectboxesdescription">
+                            <p>Space for new future projects...</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="projectboxlink">
+                    <div class="projectboxes">
+                        <h>
+                            <span class="red">Empty</span><span class="headercolor">/</span>
+                        </h>
+                        <div class="projectboxesdescription">
+                            <p>Space for new future projects...</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="projectboxMenu">
+                <div class="projectSquare">
+                    <i class="fa-regular fa-square squareOn" id="square1"></i>
+                    <i class="fa-regular fa-square" id="square2"></i>
+                </div>
+                <div class="projectArrow">
+                    <i class="fa-solid fa-chevron-left" id="projectArrowLeft"></i>&nbsp;
+                    <i class="fa-solid fa-chevron-right" id="projectArrowRight"></i>
                 </div>
             </div>
-            <p id="daysOver">
+        </div>
+    </div>
+    <div class="sectionLine">
+        <div class="line2">
+        </div>
+        <div class="line1">
 
-            </p>
-        </div>
-        <h id="nextYear"></h>
-    </div>
-    <div class="linkbox bg-white">
-        <a href="https://github.com/simondeveloping"><i class="fa-brands fa-github fa-bounce"
-                style="color: #74C0FC;"></i></a>
-        <a href="https://www.instagram.com/simonp_25/"><i class="fa-brands fa-instagram"
-                style="color: #f15873;"></i></a>
-        <a href="mailto:simon.pham@web.de"><i class="fa-regular fa-envelope  fa-spin" style="color: #a7ff6c;"></i></a>
-    </div>
-    <div class="visitorCounter" id="visitorCounter">
-         
-    </div>
-    <div class="bg-2">
-        <div class="sectiontitle">
-            <h id="Projects"><span class="blink-animation2 blue">[ </span>Projects<span class="blink-animation2 red">
-                    ]</span></h>
-        </div>
-        <div class="horizontalrule">
-            <hr>
-        </div>
-        <button id="closeProject"><i class="fa-solid fa-bars"></i></button>
-        <div class="projectbox">
-            <a href="/Calculator/calc" class="projectboxlink">
-                <div class="projectboxes bg-blue">
-                    <h>
-                        <i class="fa-solid fa-calculator"></i> Calculator<span class="headercolor">/</span>
-                    </h>
-                    <div class="projectboxesdescription">
-                        <p>This is a calculator app designed for the iPad, featuring all the standard
-                            operations.<br><span class="blue">(Web App)</span></p>
-                    </div>
-                </div>
-            </a>
-            <a class="projectboxlink">
-                <div class="projectboxes bg-violett">
-                    <h>
-                        <span class="red">Empty</span><span class="headercolor">/</span>
-                    </h>
-                    <div class="projectboxesdescription">
-                        <p>Space for new future projects...</p>
-                    </div>
-                </div>
-            </a>
-            <a class="projectboxlink">
-                <div class="projectboxes bg-lightviolett">
-                    <h>
-                        <span class="red">Empty</span><span class="headercolor">/</span>
-                    </h>
-                    <div class="projectboxesdescription">
-                        <p>Space for new future projects...</p>
-                    </div>
-                </div>
-            </a>
-            <a class="projectboxlink">
-                <div class="projectboxes bg-lightblue">
-                    <h>
-                        <span class="red">Empty</span><span class="headercolor">/</span>
-                    </h>
-                    <div class="projectboxesdescription">
-                        <p>Space for new future projects...</p>
-                    </div>
-                </div>
-            </a>
         </div>
     </div>
-    <div class="bg-1">
-        <div class="sectiontitle">
-            <h id="Mini-Projects"><span class="blink-animation2 green">[ </span>Mini-Projects<span
-                    class="blink-animation2"> ]</span></h>
-        </div>
-        <div class="horizontalrule">
-            <hr>
-        </div>
-        <div class="miniprojectboxoverlay">
-            <button class="arrow" id="arrowleft"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="bg-miniproject">
+        <div class="containerminiprojectbox">
             <div class="miniprojectbox">
                 <a href="/spinningwheel/wheel" class="projectboxlink">
-                    <div class="miniprojectboxes bg-violett">
+                    <div class="miniprojectboxes">
                         <h2>
                             <i class="fa-solid fa-coins"></i> Wheel<span class="headercolor">/</span>
 
@@ -161,10 +187,10 @@
                         </div>
                     </div>
                 </a>
-                <a href="/pinguin/pinguin" class="projectboxlink">
-                    <div class="miniprojectboxes bg-lightviolett">
+                <a class="projectboxlink">
+                    <div class="miniprojectboxes">
                         <h2>
-                            <i class="fa-regular fa-heart"></i> Pinguin <span class="headercolor">/</span>
+                            <i class="fa-regular fa-heart"></i> Not available... <span class="headercolor">/</span>
                         </h2>
                         <div class="miniprojectboxesdescription">
                             <p>This is for people who want to approach someone but don't know how :)</p>
@@ -172,7 +198,7 @@
                     </div>
                 </a>
                 <a href="/yesorno/yesorno" class="projectboxlink">
-                    <div class="miniprojectboxes bg-blue">
+                    <div class="miniprojectboxes">
                         <h2>
                             <i class="fa-solid fa-wand-magic-sparkles"></i> Yes or No<span class="headercolor">/</span>
                         </h2>
@@ -182,7 +208,7 @@
                     </div>
                 </a>
                 <a href="index.html" class="projectboxlink">
-                    <div class="miniprojectboxes bg-lightblue">
+                    <div class="miniprojectboxes">
                         <h2>
                             <i class="fa-solid fa-coins"></i> Project4<span class="headercolor">/</span>
                         </h2>
@@ -192,7 +218,7 @@
                     </div>
                 </a>
                 <a href="index.html" class="projectboxlink">
-                    <div class="miniprojectboxes bg-yellow">
+                    <div class="miniprojectboxes">
                         <h2>
                             <i class="fa-solid fa-coins"></i> Project5<span class="headercolor">/</span>
                         </h2>
@@ -201,55 +227,101 @@
                         </div>
                     </div>
                 </a>
+                <a href="index.html" class="projectboxlink">
+                    <div class="miniprojectboxes">
+                        <h2>
+                            <i class="fa-solid fa-coins"></i> Project6<span class="headercolor">/</span>
+                        </h2>
+                        <div class="miniprojectboxesdescription">
+                            <p>Not finish yet...</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <button class="arrow" id="arrowright"><i class="fa-solid fa-arrow-right"></i></button>
+            <div class="miniprojectboxMenu">
+                <div class="miniProjectSquare">
+                    <i class="fa-regular fa-square squareOn" id="miniSquare1"></i>
+                    <i class="fa-regular fa-square" id="miniSquare2"></i>
+                    <i class="fa-regular fa-square" id="miniSquare3"></i>
+                </div>
+                <div class="miniprojectboxArrow">
+                    <i class="fa-solid fa-chevron-left" id="miniprojectArrowLeft"></i>&nbsp;
+                    <i class="fa-solid fa-chevron-right" id="miniprojectArrowRight"></i>
+                </div>
+            </div>
+        </div>
+        <div class="miniprojectboxHeader">
+            <div class="sectiontitle">
+                <h id="Mini-Projects"><span class="blink-animation2 green">[ </span>Mini-Projects<span
+                        class="blink-animation2"> ]</span></h>
+            </div>
+            <p>This section is dedicated to mini-projects aimed at bringing a smile to someone's face or simply
+                providing entertainment during university life</p>
         </div>
     </div>
-    <div class="bg-2 bg-oval bg-red">
-        <div class="sectiontitle">
-            <h id="About-this-page"><span class="blink-animation2">[ </span>About this Page<span
-                    class="blink-animation2 green"> ]</span></h>
-        </div>
-        <div class="horizontalrulelarge">
-            <hr>
-        </div>
-        <div class="aboutthispage">
-            <div class="aboutthispagelayer">
-                <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-blue"><strong>Intention</strong><span class="headercolor">/</span>
-                    </div>
-                    <div class="aboutthispagetext">The primary intention of this site is to serve as a platform for
-                        sharing
-                        my
-                        personal projects and creative endeavors. It's a space where I can document my journey, showcase
-                        my
-                        work, and explore new ideas.
-                    </div>
+
+    <div class="sectionLine2">
+        <div class="line3"></div>
+    </div>
+    <div class="bg-7">
+        <div class="bg-aboutthispage">
+            <i class="fa-solid fa-otter fa-bounce"></i>
+            <div class="AboutThisPageHeader">
+                <div class="sectiontitle">
+                    <h id="About-this-page"><span class="blink-animation2 red">[ </span>About this Page<span
+                            class="blink-animation2 red"> ]</span></h>
                 </div>
-                <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-lightviolett"><strong>Ideas</strong><span
-                            class="headercolor">/</span></div>
-                    <div class="aboutthispagetext">- Games (Tic Tac Toe...)<br>- Animated stuff<br>-
-                        Web apps<br>- Mobile applications</div>
-                </div>
+                <p>Got ideas? Share your feedback in the feedback section!</p>
             </div>
-            <div class="aboutthispagelayer">
-                <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-violett"><strong>Improvement</strong><span
-                            class="headercolor">/</span>
-                    </div>
-                    <div class="aboutthispagetext">- animations
+            <div class="aboutthispage">
+                <div class="AboutThisPageBox">
+                    <div class="aboutthispagetextbox">
+                        <div class="aboutthispageheader c-blue"><strong>Intention</strong><span
+                                class="headercolor">/</span>
+                        </div>
+                        <div class="aboutthispagetext">The primary intention of this site is to serve as a platform
+                            for
+                            sharing
+                            my
+                            personal projects and creative endeavors. It's a space where I can document my journey,
+                            showcase
+                            my
+                            work, and explore new ideas.
+                        </div>
                     </div>
                 </div>
-                <div class="aboutthispagetextbox">
-                    <div class="aboutthispageheader c-lightblue"><strong>FAQs</strong><span class="headercolor">/</span>
+                <div class="AboutThisPageBox">
+                    <div class="aboutthispagetextbox">
+                        <div class="aboutthispageheader c-lightviolett"><strong>Ideas</strong><span
+                                class="headercolor">/</span></div>
+                        <div class="aboutthispagetext">- Games (Tic Tac Toe...)<br>- Animated stuff<br>-
+                            Web apps<br>- Mobile applications</div>
                     </div>
-                    <div class="aboutthispagetext">- ...</div>
+                </div>
+                <div class="AboutThisPageBox">
+                    <div class="aboutthispagetextbox">
+                        <div class="aboutthispageheader c-violett"><strong>Improvement</strong><span
+                                class="headercolor">/</span>
+                        </div>
+                        <div class="aboutthispagetext">- animations
+                        </div>
+                    </div>
+                </div>
+                <div class="AboutThisPageBox">
+                    <div class="aboutthispagetextbox">
+                        <div class="aboutthispageheader c-lightblue"><strong>FAQs</strong><span
+                                class="headercolor">/</span>
+                        </div>
+                        <div class="aboutthispagetext">- ...</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-1">
+    <div class="sectionLine2">
+        <div class="line4"></div>
+    </div>
+    <div class="bg-feedback">
         <div class="sectiontitle">
             <h id="Feedback"><span class="blink-animation2 blue">[ </span>Feedback<span class="blink-animation2 green">
                     ]</span></h>
@@ -279,6 +351,13 @@
             <button class="arrow" id="arrowfbright"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
+    <div class="sectionLine">
+        <div class="line2">
+        </div>
+        <div class="line1">
+
+        </div>
+    </div>
     <div class="bg-2">
         <div class="sectiontitle">
             <h id="Private-stuff"><span class="blink-animation2 red">[ </span>Private Stuff<span
@@ -298,27 +377,27 @@
             <button class="arrow" id="privatearrowleft"><i class="fa-solid fa-arrow-left"></i></button>
             <div class="privatestuffbox">
                 <a id="privatebox1" class="privateboxlink">
-                    <div class="privateprojectbox bg-blue">
+                    <div class="privateprojectbox">
                         <i class="fa-regular fa-heart"></i> Pinguin
                     </div>
                 </a>
                 <a id="privatebox2" class="privateboxlink">
-                    <div class="privateprojectbox bg-lightblue">
+                    <div class="privateprojectbox">
                         <i class="fa-solid fa-cloud"></i> Project2
                     </div>
                 </a>
                 <a id="privatebox3" class="privateboxlink">
-                    <div class="privateprojectbox bg-violett">
+                    <div class="privateprojectbox">
                         Project3
                     </div>
                 </a>
                 <a id="privatebox4" class="privateboxlink">
-                    <div class="privateprojectbox bg-lightviolett">
+                    <div class="privateprojectbox">
                         Project4
                     </div>
                 </a>
                 <a id="privatebox5" class="privateboxlink">
-                    <div class="privateprojectbox bg-yellow">
+                    <div class="privateprojectbox">
                         Project5
                     </div>
                 </a>
@@ -326,7 +405,10 @@
             <button class="arrow" id="privatearrowright"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
-    <div class="bg-4">
+    <div class="sectionLine2">
+        <div class="line4"></div>
+    </div>
+    <div class="bg-aboutme">
         <div class="aboutmeText">
             About Me
         </div>
@@ -336,7 +418,10 @@
             </div>
         </a>
     </div>
-    <div class="bg-5">
+    <div class="sectionLine">
+        <div class="line4"></div>
+    </div>
+    <div class="bg-support">
 
         <div class="watercontainer">
             <a href="https://paypal.me/simonpham2005" id="water">
@@ -347,13 +432,18 @@
             Support Me
         </div>
     </div>
-    <code>test</code>
+    <div class="sectionLine">
+        <div class="line2">
+        </div>
+        <div class="line1">
+        </div>
+    </div>
     <footer>
         <p>Copyright </h><i class="fa-regular fa-copyright"></i> 2024 Simon - All Rights Reserved</p>
     </footer>
-    <script type="module" src="databasev5.js"></script>
+    <script type="module" src="databasev6.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="scriptv2.js"></script>
+    <script src="scriptv3.js"></script>
 </body>
 
 </html>
