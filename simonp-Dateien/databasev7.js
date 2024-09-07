@@ -227,10 +227,6 @@ document
     event.preventDefault();
 
     const msg = document.getElementById("suggestioninput").value;
-    const name = document.getElementById("suggestionname").value;
-    if(name === "") {
-      name = "Anonymous";
-    }
     if (selectedRating === 0) {
       alert("Please select a rating.");
       return;
@@ -239,7 +235,6 @@ document
     set(ref(db, "feedback/" + new Date()), {
       message: msg,
       rating: selectedRating,
-      name: name,
     })
       .then(() => {
         alert("Thank you for your feedback!");
@@ -266,7 +261,6 @@ function loadFeedback() {
         Object.keys(feedbackData).forEach((key) => {
           const feedbackMessage = feedbackData[key].message;
           const feedbackRating = feedbackData[key].rating;
-          const feedbackName = feedbackData[key].name;
 
           const feedbackBox = document.createElement("div");
           feedbackBox.className = "feedbackbox";
@@ -279,13 +273,8 @@ function loadFeedback() {
           feedbackTitle.className = "feedbacktitle";
           feedbackTitle.innerHTML = getStars(feedbackRating);
 
-          const feedbackNameElement = document.createElement("div");
-          feedbackNameElement.className = "feedbackname";
-          feedbackNameElement.textContent = feedbackName;
-
           feedbackBox.appendChild(feedbackTitle);
           feedbackBox.appendChild(feedbackDes);
-          feedbackBox.appendChild(feedbackNameElement);
 
           feedbackOverlay.appendChild(feedbackBox);
         });
