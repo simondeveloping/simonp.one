@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>simonp</title>
-    <link rel="stylesheet" href="stylev6.css">
+    <link rel="stylesheet" href="stylev7.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
@@ -144,7 +144,7 @@
                         </div>
                     </div>
                 </a>
-               
+
                 <a class="projectboxlink">
                     <div class="projectboxes">
                         <h>
@@ -340,7 +340,7 @@
                     <h id="Feedback"><span class="blink-animation2 blue">[ </span>Feedback<span
                             class="blink-animation2 green">
                             ]</span> <i class="fa-regular fa-comment"></i>
-                        </h>
+                    </h>
                 </div>
             </div>
             <div class="feedbackMessage">
@@ -381,51 +381,58 @@
 
         </div>
     </div>
-    <div class="bg-2">
-        <div class="sectiontitle">
-            <h id="Private-stuff"><span class="blink-animation2 red">[ </span>Private Stuff<span
-                    class="blink-animation2"> ]</span></h>
+    <div class="bg-private">
+        <div class="privatestuffHeader">
+            <div class="sectiontitle">
+                <h id="Private-stuff"><span class="blink-animation2 red">[ </span>Private Stuff<span
+                        class="blink-animation2"> ]</span></h>
+            </div>
+            <form id="login-form">
+                <label for="password">
+                    <h3>Passwort:</h3>
+                </label>
+                <div class="password">
+                    <input type="password" id="passwordforprivat" name="passwordforprivat" required>
+                    <button type="submit" id="loginbuttonforprivat">Login</button>
+                </div>
+            </form>
         </div>
-        <div class="horizontalrulelarge">
-            <hr>
-        </div>
-        <form id="login-form">
-            <label for="password">
-                <h3>Passwort:</h3>
-            </label>
-            <input type="password" id="passwordforprivat" name="passwordforprivat" required>
-            <button type="submit" id="loginbuttonforprivat">Login</button>
-        </form>
-        <div class="privateprojectoverlay">
-            <button class="arrow" id="privatearrowleft"><i class="fa-solid fa-arrow-left"></i></button>
-            <div class="privatestuffbox">
-                <a id="privatebox1" class="privateboxlink">
+        <div class="containerprivatestuff">
+            <div class="privateprojectboxcontainer">
+                <i class="fa-solid fa-gamepad" style="color: #74C0FC;"></i>                <a id="privatebox1" class="privateboxlink">
                     <div class="privateprojectbox">
                         <i class="fa-regular fa-heart"></i> Pinguin
                     </div>
                 </a>
-                <a id="privatebox2" class="privateboxlink">
+            </div>
+            <div class="privateprojectboxcontainer">
+                <i class="fa-solid fa-database" style="color: #B197FC;"></i>                <a id="privatebox2" class="privateboxlink">
                     <div class="privateprojectbox">
                         <i class="fa-solid fa-cloud"></i> Project2
                     </div>
                 </a>
-                <a id="privatebox3" class="privateboxlink">
+            </div>
+            <div class="privateprojectboxcontainer">
+                <i class="fa-solid fa-microchip" style="color: #63E6BE;"></i>                <a id="privatebox3" class="privateboxlink">
                     <div class="privateprojectbox">
                         Project3
                     </div>
                 </a>
-                <a id="privatebox4" class="privateboxlink">
+            </div>
+            <div class="privateprojectboxcontainer">
+                <i class="fa-regular fa-keyboard" style="color: #FFD43B;"></i>                <a id="privatebox4" class="privateboxlink">
                     <div class="privateprojectbox">
                         Project4
                     </div>
                 </a>
-                <a id="privatebox5" class="privateboxlink">
+            </div>
+            <div class="privateprojectboxcontainer">
+                <i class="fa-solid fa-mobile-screen-button" style="color: #e60000;"></i>                <a id="privatebox5" class="privateboxlink">
                     <div class="privateprojectbox">
                         Project5
                     </div>
                 </a>
             </div>
-            <button class="arrow" id="privatearrowright"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
     <div class="sectionLine2">
@@ -465,7 +472,7 @@
     </footer>
     <script type="module" src="databasev1.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="scriptv8.js"></script>
+    <script src="scriptv9.js"></script>
 </body>
 
 </html>

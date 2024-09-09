@@ -15,78 +15,6 @@ function addToList() {
 }
 */
 
-document
-  .getElementById("arrowleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft1();
-  });
-document
-  .getElementById("arrowright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight1();
-  });
-function scrollLeft1() {
-  document.querySelector(".miniprojectbox").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight1() {
-  document.querySelector(".miniprojectbox").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
-document
-  .getElementById("privatearrowleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft();
-  });
-document
-  .getElementById("privatearrowright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight();
-  });
-function scrollLeft() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
-document
-  .getElementById("arrowfbleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft2();
-  });
-document
-  .getElementById("arrowfbright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight2();
-  });
-function scrollLeft2() {
-  document.querySelector(".feedbackoverlay").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight2() {
-  document.querySelector(".feedbackoverlay").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
 ScrollReveal().reveal(".sectiontitle", {
   origin: "bottom",
   distance: "50px",
@@ -149,6 +77,13 @@ ScrollReveal().reveal("nav", {
   reset: true,
 });
 
+ScrollReveal().reveal(".projectbox", {
+  origin: "top",
+  distance: "50px",
+  duration: 1000,
+  easing: "ease-in-out",
+  delay: 1,
+});
 let numberDays;
 let maxNumberDays;
 const year = new Date().getFullYear();
@@ -176,16 +111,7 @@ function days() {
 }
 percent();
 days();
-if (window.matchMedia("(max-width: 768px)").matches) {
-  document.querySelector(".projectbox").classList.add("hidden");
-}
-document.getElementById("closeProject").addEventListener("click", function () {
-  if (!document.querySelector(".projectbox").classList.contains("hidden")) {
-    document.querySelector(".projectbox").classList.add("hidden");
-  } else {
-    document.querySelector(".projectbox").classList.remove("hidden");
-  }
-});
+
 document.getElementById("bar").addEventListener("click", function (e) {
   e.preventDefault();
   let bar = document.getElementById("menuBar");
@@ -212,3 +138,130 @@ document.getElementById("extendHome").addEventListener("click", function () {
     behavior: "smooth",
   });
 });
+document.getElementById("profile").addEventListener("click", function () {
+  document.getElementById("profileBar").classList.toggle("open");
+});
+document.addEventListener("click", function (e) {
+  let profile = document.getElementById("profileBar");
+  let profileButton = document.getElementById("profile");
+  if (!profile.contains(e.target) && !profileButton.contains(e.target)) {
+    profile.classList.remove("open");
+  }
+});
+document
+  .getElementById("projectArrowLeft")
+  .addEventListener("click", function () {
+    const projectBox = document.querySelector(".projectbox");
+    if (projectBox.scrollLeft === 0) {
+      projectBox.scrollTo({
+        left: projectBox.scrollWidth,
+        behavior: "smooth",
+      });
+    } else {
+      projectBox.scrollBy({
+        left: -1000,
+        behavior: "smooth",
+      });
+    }
+    toggleSquare1();
+  });
+document
+  .getElementById("projectArrowRight")
+  .addEventListener("click", function () {
+    const projectBox = document.querySelector(".projectbox");
+    const maxScrollLeft = projectBox.scrollWidth - projectBox.clientWidth;
+    if (projectBox.scrollLeft >= maxScrollLeft) {
+      projectBox.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    } else {
+      projectBox.scrollBy({
+        left: 1000,
+        behavior: "smooth",
+      });
+    }
+    toggleSquare1();
+  });
+function toggleSquare1() {
+  let square1 = document.getElementById("square1");
+  let square2 = document.getElementById("square2");
+  if (square1.classList.contains("squareOn")) {
+    square1.classList.remove("squareOn");
+    square2.classList.add("squareOn");
+  } else {
+    square1.classList.add("squareOn");
+    square2.classList.remove("squareOn");
+  }
+}
+let squareCount = 0;
+document
+  .getElementById("miniprojectArrowLeft")
+  .addEventListener("click", function () {
+    document.querySelector(".miniprojectbox").scrollBy({
+      left: -630,
+      behavior: "smooth",
+    });
+    squareCount--;
+    resetCount();
+
+    toggleSquare2();
+  });
+document
+  .getElementById("miniprojectArrowRight")
+  .addEventListener("click", function () {
+    document.querySelector(".miniprojectbox").scrollBy({
+      left: 630,
+      behavior: "smooth",
+    });
+    squareCount++;
+    resetCount();
+
+    toggleSquare2();
+  });
+function toggleSquare2() {
+  let square1 = document.getElementById("miniSquare1");
+  let square2 = document.getElementById("miniSquare2");
+  let square3 = document.getElementById("miniSquare3");
+  if (squareCount === 0) {
+    square1.classList.add("squareOn");
+    square2.classList.remove("squareOn");
+    square3.classList.remove("squareOn");
+  }
+  if (squareCount === 1) {
+    square1.classList.remove("squareOn");
+    square2.classList.add("squareOn");
+    square3.classList.remove("squareOn");
+  }
+  if (squareCount === 2) {
+    square1.classList.remove("squareOn");
+    square2.classList.remove("squareOn");
+    square3.classList.add("squareOn");
+  }
+}
+function resetCount() {
+  if (squareCount < 0) {
+    squareCount = 0;
+  }
+  if (squareCount > 2) {
+    squareCount = 2;
+  }
+}
+document.getElementById("feedbackUp").addEventListener("click", function () {
+  scrollUp();
+});
+document.getElementById("feedbackDown").addEventListener("click", function () {
+  scrollDown();
+});
+function scrollUp() {
+  document.querySelector(".feedbackoverlay").scrollBy({
+    top: -200,
+    behavior: "smooth",
+  });
+}
+function scrollDown() {
+  document.querySelector(".feedbackoverlay").scrollBy({
+    top: 200,
+    behavior: "smooth",
+  });
+}
