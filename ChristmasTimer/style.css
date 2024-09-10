@@ -1,0 +1,14 @@
+body{
+    background-image: url("christmas.jpg");
+    background-size: cover;
+}
+.days{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: monospace;
+    flex-direction: column;
+}
