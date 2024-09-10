@@ -6,20 +6,15 @@ body {
   flex-flow: column;
   background-color: #101314;
   overflow-x: hidden;
+
   background-attachment: fixed;
 }
 
-.title {
-  font-family: monospace;
-  font-size: xx-large;
-  margin-bottom: 3%;
-  margin-top: 2%;
-  width: auto;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden !important;
+  }
 }
-
 .miniprojectbox {
   display: flex;
   justify-content: start;
@@ -113,6 +108,9 @@ body {
   .containerminiprojectbox {
     width: 62%;
   }
+  .miniprojectboxHeader p {
+    font-size: 1.2rem !important;
+  }
 }
 .sectiontitle {
   font-size: 2rem;
@@ -182,22 +180,6 @@ a:hover {
   color: darkcyan;
 }
 
-.animated-title {
-  font-family: monospace;
-  overflow: hidden;
-  animation: typing 4s steps(15) forwards;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 15ch;
-  }
-}
-
 h {
   color: white;
   font-family: monospace;
@@ -265,14 +247,6 @@ h {
   text-align: center;
 }
 
-input {
-  background-color: black;
-  color: white;
-  border-radius: 12px;
-  border: 2px solid white;
-  font-size: medium;
-}
-
 h3 {
   font-size: x-large;
   color: white;
@@ -333,13 +307,15 @@ h6 {
   align-items: center;
   flex-wrap: wrap;
   width: 290px;
+  margin-top: 10%;
+  flex-direction: column;
 }
 
 .privateprojectbox {
   margin: 1%;
-  width: 200px;
+  width: 400px;
   background-color: hsla(0, 0%, 100%, 0.471);
-  height: 200px;
+  height: 100px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -350,7 +326,19 @@ h6 {
   font-family: monospace;
   flex-shrink: 0;
 }
-
+.containerprivatestuff {
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .containerprivatestuff {
+    width: 100%;
+  }
+}
 .privateprojectoverlay {
   width: 90%;
   height: auto;
@@ -362,7 +350,7 @@ h6 {
 }
 
 .privatestuffbox {
-  width: 60%;
+  width: 50%;
   height: auto;
   display: flex;
   justify-content: start;
@@ -372,17 +360,14 @@ h6 {
   display: block;
 }
 @media (max-width: 768px) {
-  .privateprojectoverlay {
-    width: 100%;
+  .privatestuffHeader {
+    width: 100% !important;
+    margin-bottom: 15%;
   }
 
   .privateprojectbox {
-    width: 200px;
-    height: 200px;
-  }
-
-  .arrow {
-    display: none !important;
+    width: 230px;
+    height: 80px;
   }
 
   .privatestuffbox {
@@ -398,8 +383,8 @@ h6 {
   }
 
   .privateprojectbox {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 100px;
   }
   .privatestuffbox {
     width: 70%;
@@ -418,49 +403,16 @@ h6 {
 
 .privateboxlink {
   color: rgb(44, 43, 43);
-  margin: 1%;
 }
 
 #loginbuttonforprivat {
   font-family: monospace;
   font-size: medium;
-  background-color: black;
+  background-color: #101314;
   border: 2px solid white;
   color: white;
-  border-radius: 12px;
-  padding: 3px;
-}
-
-#Register {
-  width: 900px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  background-color: white;
-}
-
-#Register input {
+  border-radius: 5px;
   padding: 5px;
-  margin-right: 1%;
-  margin-left: 1%;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  width: 19%;
-}
-
-#Register button {
-  font-family: monospace;
-  background-color: black;
-  color: white;
-  border: 2px solid white;
-  border-radius: 12px;
-  padding: 5px;
-}
-
-#Register:hover {
-  transform: scale(1.05);
 }
 
 @keyframes gradient {
@@ -515,27 +467,10 @@ h6 {
   transform: scale(1.05);
 }
 
-.containerforlogin {
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  flex-wrap: wrap;
-}
-
 h5 {
   font-family: monospace;
   color: rgb(218, 109, 109);
   font-size: x-large;
-}
-
-.warningforlogin {
-  width: 90%;
-  height: auto;
-  margin-left: 30%;
-  margin-right: 30%;
-  text-align: center;
 }
 
 input:hover {
@@ -556,41 +491,6 @@ footer {
   text-align: center;
 }
 
-#forgotpasswort {
-  margin-left: 3%;
-  border: 2px solid darkcyan !important;
-  color: black !important;
-  background-color: white !important;
-}
-
-.bigtitle {
-  width: 100%;
-  height: 40vh;
-  border: 5px solid rgb(255, 255, 255);
-  overflow: hidden;
-  position: relative;
-  background-color: rgba(128, 128, 128, 0.266);
-}
-
-.bigtitle h1 {
-  font-family: monospace;
-  font-size: 4rem;
-  color: white;
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  z-index: 1;
-  width: 100%;
-  bottom: -50%;
-  position: absolute;
-  animation: title 5s forwards;
-}
-@media (max-width: 1920px) {
-  .bigtitle h1 {
-    font-size: 3rem;
-  }
-}
-
 @keyframes title {
   0% {
     bottom: -50%;
@@ -602,25 +502,6 @@ footer {
 
   100% {
     bottom: 15%;
-  }
-}
-
-.bigtitle img {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 2;
-  object-fit: cover;
-  opacity: 0.5;
-}
-
-@media (max-width: 768px) {
-  .bigtitle img {
-    display: none;
-  }
-
-  .bigtitle {
-    display: none;
   }
 }
 .profileLinks {
@@ -737,18 +618,59 @@ footer {
   justify-content: center;
   align-items: center;
 }
-.bg-2 {
+.bg-private {
   background-color: #101314;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 100%;
+  padding: 80px;
+  width: 90%;
   margin-bottom: 1%;
   margin-top: 1%;
   flex-wrap: wrap;
 }
+.privateprojectboxcontainer {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .privateprojectboxcontainer {
+    width: 100%;
+  }
+}
+#passwordforprivat {
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: #101314;
+  padding: 5px;
+  color: white;
+}
+.password {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.privateprojectboxcontainer i {
+  font-size: 2rem;
+}
+.privatestuffHeader {
+  width: 30%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10%;
+}
+
 .bg-projects {
   background-color: #101314;
   display: flex;
@@ -791,6 +713,9 @@ footer {
 @media (max-width: 1366px) {
   .projectHeader {
     margin-right: 3%;
+  }
+  .projectHeader p {
+    font-size: 1.2rem;
   }
 }
 #Projects {
@@ -856,6 +781,7 @@ footer {
 .bg-stats {
   height: 100%;
   color: rgb(158, 158, 158);
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -953,7 +879,7 @@ footer {
   }
   .linkbox {
     width: 50%;
-    padding: 0;
+    padding-left: 20px;
     font-size: large;
     margin-left: -53%;
   }
@@ -980,26 +906,6 @@ footer {
   overflow-y: hidden;
   max-height: 500px;
 }
-@media (max-width: 768px) {
-  .feedbackoverlay {
-    max-height: 400px;
-    margin-top: 10%;
-    justify-content: center;
-  }
-  #suggestioninput {
-    height: 25vh;
-  }
-  .feedbackContainer {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media (min-width: 1366px) {
-  .feedbackoverlay {
-    max-height: 700px;
-  }
-}
 .feedbacksent {
   width: 100%;
   height: 100%;
@@ -1014,6 +920,38 @@ footer {
   color: white;
   font-size: 1.7rem;
 }
+@media (max-width: 768px) {
+  .feedbackoverlay {
+    max-height: 400px;
+    margin-top: 10%;
+    justify-content: center;
+    border: 2px solid white;
+    width: 80%;
+    overflow-y: scroll;
+  }
+  #suggestioninput {
+    height: 25vh;
+  }
+  .feedbackContainer {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .feedbacksent {
+    justify-content: center;
+    align-items: center;
+  }
+  .feedbackarrow {
+    width: 80%;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 1366px) {
+  .feedbackoverlay {
+    max-height: 700px;
+  }
+}
+
 .feedbackbox {
   width: 250px;
   height: 200px;
@@ -1027,6 +965,7 @@ footer {
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.966);
   transition: 0.5s;
+  padding: 5px;
 }
 
 .feedbackbox:hover {
@@ -1060,8 +999,8 @@ footer {
   word-break: break-all;
   color: rgb(0, 0, 0);
 }
-.feedbackname{
-  color:black;
+.feedbackname {
+  color: black;
   height: 10%;
   font-family: monospace;
 }
@@ -1307,7 +1246,7 @@ nav {
   position: relative;
 }
 .profile {
-  width: 60vw;
+  width: 40vw;
   background-color: rgb(106, 139, 111);
   position: fixed;
   left: -80vw;
@@ -1320,14 +1259,19 @@ nav {
   align-items: center;
   font-size: large;
 }
+@media (max-width: 768px) {
+  .profile {
+    width: 60vw;
+  }
+}
 .profile i {
   font-size: xx-large;
 }
 .profile img {
   border-radius: 50%;
   margin: 5%;
-  height: auto;
-  width: auto;
+  height: 40%;
+  width: 50%;
 }
 .profile a:hover {
   text-shadow: none;
@@ -1425,18 +1369,6 @@ nav a:hover::after {
     width: 50px;
   }
 }
-.background-image {
-  background-image: url("programm.png");
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  z-index: -100;
-  width: 100vw;
-  position: relative;
-  bottom: 50px;
-}
 .menu {
   position: relative;
   top: 0;
@@ -1450,13 +1382,21 @@ nav a:hover::after {
   width: 30vw;
   background-color: rgba(160, 158, 158, 0.692);
   position: fixed;
-  right: -60vw;
+  transform: translateX(600%);
   height: 90vh;
-  transition: right 0.5s ease;
+  transition: transform 0.5s ease-in-out;
   z-index: 1;
 }
 .bar.open {
-  right: 0;
+  transform: translateX(300%);
+}
+@media (max-width: 768px) {
+  .bar {
+    transform: translate(300%);
+  }
+  .bar.open {
+    transform: translateX(120%);
+  }
 }
 .nav-profile button {
   background-color: transparent;
@@ -1472,11 +1412,6 @@ nav a:hover::after {
 }
 
 @media (max-width: 768px) {
-  .background-image {
-    background-attachment: scroll;
-    width: 100vw;
-    background-size: cover;
-  }
   .menu {
     display: block;
     left: 70vw;
@@ -1492,12 +1427,6 @@ nav a:hover::after {
   }
 }
 @media (max-width: 1366px) and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .background-image {
-    width: 100vw;
-    bottom: 40px;
-    background-attachment: scroll;
-    background-size: cover;
-  }
   .menu {
     display: block;
     left: 85vw;
@@ -1515,10 +1444,6 @@ nav a:hover::after {
   }
 }
 @media (min-width: 1024px) and (max-width: 1366px) {
-  .background-image {
-    width: 100vw;
-    bottom: 40px;
-  }
   .menu {
     display: block;
   }
@@ -1651,7 +1576,7 @@ nav a:hover::after {
     text-align: center;
   }
 }
-.bg-6 {
+.bg-statsOverlay {
   height: auto;
   width: 100vw;
   background-color: rgb(255, 254, 254);
@@ -1738,4 +1663,49 @@ nav a:hover::after {
   .line4 {
     height: 5vh;
   }
+}
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #101314;
+  height: 10vh;
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+  justify-content: end;
+}
+@media (max-width: 768px) {
+  .stickyHeader {
+    display: none;
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+  width: 70px;
+  height: 30px;
+  border-radius: 12px;
+  background-color: rgb(58, 98, 105);
+}
+.switch::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  margin: 5px;
+  background-color: white;
+  transition: 0.5s;
+}
+.stickyHeader input:checked + .switch {
+  background-color: rgb(84, 129, 84);
+}
+.stickyHeader input:checked + .switch::before {
+  transform: translateX(40px);
+}
+.stickyHeader input {
+  display: none;
 }

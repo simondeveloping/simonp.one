@@ -14,54 +14,7 @@ function addToList() {
     }
 }
 */
-document
-  .getElementById("privatearrowleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft();
-  });
-document
-  .getElementById("privatearrowright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight();
-  });
-function scrollLeft() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
-document
-  .getElementById("arrowfbleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft2();
-  });
-document
-  .getElementById("arrowfbright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight2();
-  });
-function scrollLeft2() {
-  document.querySelector(".feedbackoverlay").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight2() {
-  document.querySelector(".feedbackoverlay").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
+
 ScrollReveal().reveal(".sectiontitle", {
   origin: "bottom",
   distance: "50px",
@@ -124,6 +77,13 @@ ScrollReveal().reveal("nav", {
   reset: true,
 });
 
+ScrollReveal().reveal(".projectbox", {
+  origin: "top",
+  distance: "50px",
+  duration: 1000,
+  easing: "ease-in-out",
+  delay: 1,
+});
 let numberDays;
 let maxNumberDays;
 const year = new Date().getFullYear();
@@ -151,8 +111,6 @@ function days() {
 }
 percent();
 days();
-document.getElementById("lastYear").innerHTML = year - 1;
-document.getElementById("nextYear").innerHTML = year + 1;
 
 document.getElementById("bar").addEventListener("click", function (e) {
   e.preventDefault();
@@ -225,63 +183,150 @@ document
     }
     toggleSquare1();
   });
-function toggleSquare1(){
+function toggleSquare1() {
   let square1 = document.getElementById("square1");
   let square2 = document.getElementById("square2");
-  if(square1.classList.contains("squareOn")){
+  if (square1.classList.contains("squareOn")) {
     square1.classList.remove("squareOn");
     square2.classList.add("squareOn");
-  }else{
+  } else {
     square1.classList.add("squareOn");
     square2.classList.remove("squareOn");
   }
 }
 let squareCount = 0;
-document.getElementById("miniprojectArrowLeft").addEventListener("click", function(){
-  document.querySelector(".miniprojectbox").scrollBy({
-    left: -630,
-    behavior: "smooth",
-  })
-  squareCount--;
-  resetCount();
+document
+  .getElementById("miniprojectArrowLeft")
+  .addEventListener("click", function () {
+    document.querySelector(".miniprojectbox").scrollBy({
+      left: -630,
+      behavior: "smooth",
+    });
+    squareCount--;
+    resetCount();
 
-  toggleSquare2();
-});
-document.getElementById("miniprojectArrowRight").addEventListener("click", function(){
-  document.querySelector(".miniprojectbox").scrollBy({
-    left: 630,
-    behavior: "smooth",
-  })
-  squareCount++;
-  resetCount();
+    toggleSquare2();
+  });
+document
+  .getElementById("miniprojectArrowRight")
+  .addEventListener("click", function () {
+    document.querySelector(".miniprojectbox").scrollBy({
+      left: 630,
+      behavior: "smooth",
+    });
+    squareCount++;
+    resetCount();
 
-  toggleSquare2();
-});
-function toggleSquare2(){
+    toggleSquare2();
+  });
+function toggleSquare2() {
   let square1 = document.getElementById("miniSquare1");
   let square2 = document.getElementById("miniSquare2");
   let square3 = document.getElementById("miniSquare3");
-  if(squareCount === 0){
+  if (squareCount === 0) {
     square1.classList.add("squareOn");
     square2.classList.remove("squareOn");
     square3.classList.remove("squareOn");
   }
-  if(squareCount === 1){
+  if (squareCount === 1) {
     square1.classList.remove("squareOn");
     square2.classList.add("squareOn");
     square3.classList.remove("squareOn");
   }
-  if(squareCount === 2){
+  if (squareCount === 2) {
     square1.classList.remove("squareOn");
     square2.classList.remove("squareOn");
     square3.classList.add("squareOn");
   }
 }
-function resetCount(){
-  if(squareCount < 0){
+function resetCount() {
+  if (squareCount < 0) {
     squareCount = 0;
   }
-  if(squareCount > 2){
+  if (squareCount > 2) {
     squareCount = 2;
   }
+}
+document.getElementById("feedbackUp").addEventListener("click", function () {
+  scrollUp();
+});
+document.getElementById("feedbackDown").addEventListener("click", function () {
+  scrollDown();
+});
+function scrollUp() {
+  document.querySelector(".feedbackoverlay").scrollBy({
+    top: -200,
+    behavior: "smooth",
+  });
+}
+function scrollDown() {
+  document.querySelector(".feedbackoverlay").scrollBy({
+    top: 200,
+    behavior: "smooth",
+  });
+}
+window.addEventListener('scroll', function() {
+  const header = document.getElementById('stickyHeader');
+  const scrollY = window.scrollY;
+
+  if (scrollY === 0) {
+    // Ganz oben - Header unsichtbar
+    header.style.opacity = '0';
+  } else {
+    // Header sichtbar
+    header.style.opacity = '1';
+    
+    // Prüfe die Positionen und ändere die Farbe
+    const sections = document.querySelectorAll('.bg-statsOverlay, .bg-7, .bg-aboutme');
+    let foundMatch = false;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 0 && rect.bottom >= 0) {
+        header.style.backgroundColor = 'white';
+        header.style.color = 'black';
+        foundMatch = true;
+      }
+    });
+
+    if (!foundMatch) {
+      header.style.backgroundColor = '#101314'; 
+      header.style.color = 'white'; 
+    }
+  }
+});
+let rainbow = false;
+let intervalId;
+
+document.getElementById("switch").addEventListener("change", function () {
+  if(this.checked){
+    if(!rainbow){
+      switchBackground();
+      rainbow = true;
+    } else {
+      clearInterval(intervalId);
+      document.getElementById("home").style.backgroundColor = "#101314"; 
+      rainbow = false;
+    }
+  } else {
+    clearInterval(intervalId); 
+    document.getElementById("home").style.backgroundColor = "#101314"; 
+    rainbow = false;
+  }
+});
+
+function switchBackground() {
+  const element = document.getElementById("home");
+  intervalId = setInterval(function() {
+    element.style.backgroundColor = getRandomColor();
+  }, 500); 
+}
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
