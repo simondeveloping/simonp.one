@@ -1674,7 +1674,7 @@ nav a:hover::after {
   width: 100%;
   z-index: 1000;
   background-color: #101314;
-  height: 10vh;
+  height: auto;
   opacity: 0;
   transition: 0.5s;
   display: flex;
