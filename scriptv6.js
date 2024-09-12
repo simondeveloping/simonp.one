@@ -14,30 +14,6 @@ function addToList() {
     }
 }
 */
-document
-  .getElementById("privatearrowleft")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollLeft();
-  });
-document
-  .getElementById("privatearrowright")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    scrollRight();
-  });
-function scrollLeft() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: -200,
-    behavior: "smooth",
-  });
-}
-function scrollRight() {
-  document.querySelector(".privatestuffbox").scrollBy({
-    left: 200,
-    behavior: "smooth",
-  });
-}
 
 ScrollReveal().reveal(".sectiontitle", {
   origin: "bottom",
@@ -101,6 +77,13 @@ ScrollReveal().reveal("nav", {
   reset: true,
 });
 
+ScrollReveal().reveal(".projectbox", {
+  origin: "top",
+  distance: "50px",
+  duration: 1000,
+  easing: "ease-in-out",
+  delay: 1,
+});
 let numberDays;
 let maxNumberDays;
 const year = new Date().getFullYear();
@@ -169,6 +152,7 @@ document
   .getElementById("projectArrowLeft")
   .addEventListener("click", function () {
     const projectBox = document.querySelector(".projectbox");
+    const scrollValue = getScrollValue();
     if (projectBox.scrollLeft === 0) {
       projectBox.scrollTo({
         left: projectBox.scrollWidth,
@@ -176,7 +160,7 @@ document
       });
     } else {
       projectBox.scrollBy({
-        left: -1000,
+        left: -scrollValue,
         behavior: "smooth",
       });
     }
@@ -187,6 +171,7 @@ document
   .addEventListener("click", function () {
     const projectBox = document.querySelector(".projectbox");
     const maxScrollLeft = projectBox.scrollWidth - projectBox.clientWidth;
+    const scrollValue = getScrollValue();
     if (projectBox.scrollLeft >= maxScrollLeft) {
       projectBox.scrollTo({
         left: 0,
@@ -194,7 +179,7 @@ document
       });
     } else {
       projectBox.scrollBy({
-        left: 1000,
+        left: scrollValue,
         behavior: "smooth",
       });
     }
@@ -215,8 +200,9 @@ let squareCount = 0;
 document
   .getElementById("miniprojectArrowLeft")
   .addEventListener("click", function () {
+    const scrollValue = getScrollValue2();
     document.querySelector(".miniprojectbox").scrollBy({
-      left: -630,
+      left: -scrollValue,
       behavior: "smooth",
     });
     squareCount--;
@@ -227,8 +213,9 @@ document
 document
   .getElementById("miniprojectArrowRight")
   .addEventListener("click", function () {
+    const scrollValue = getScrollValue2();
     document.querySelector(".miniprojectbox").scrollBy({
-      left: 630,
+      left: scrollValue,
       behavior: "smooth",
     });
     squareCount++;
@@ -256,6 +243,12 @@ function toggleSquare2() {
     square3.classList.add("squareOn");
   }
 }
+function getScrollValue(){
+  return window.matchMedia("(max-width:768px)").matches ? 360: 1000;
+}
+function getScrollValue2(){
+  return window.matchMedia("(max-width:768px)").matches ? 310: 630;
+}
 function resetCount() {
   if (squareCount < 0) {
     squareCount = 0;
@@ -281,4 +274,88 @@ function scrollDown() {
     top: 200,
     behavior: "smooth",
   });
+}
+window.addEventListener('scroll', function() {
+  const header = document.getElementById('stickyHeader');
+  const scrollY = window.scrollY;
+
+  if (scrollY === 0) {
+    // Ganz oben - Header unsichtbar
+    header.style.opacity = '0';
+  } else {
+    // Header sichtbar
+    header.style.opacity = '1';
+    
+    // Prüfe die Positionen und ändere die Farbe
+    const sections = document.querySelectorAll('.bg-statsOverlay, .bg-7, .bg-aboutme');
+    let foundMatch = false;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 0 && rect.bottom >= 0) {
+        header.style.backgroundColor = 'white';
+        header.style.color = 'black';
+        foundMatch = true;
+      }
+    });
+
+    if (!foundMatch) {
+      header.style.backgroundColor = '#101314'; 
+      header.style.color = 'white'; 
+    }
+  }
+});
+let rainbow = false;
+let intervalId;
+
+document.getElementById("switch").addEventListener("change", function () {
+  if(this.checked){
+    if(!rainbow){
+      switchBackground();
+      rainbow = true;
+    } else {
+      clearInterval(intervalId);
+      document.getElementById("home").style.backgroundColor = "#101314"; 
+      rainbow = false;
+    }
+  } else {
+    clearInterval(intervalId); 
+    document.getElementById("home").style.backgroundColor = "#101314"; 
+    rainbow = false;
+  }
+});
+
+function switchBackground() {
+  const b1 = document.querySelector(".bg-statsOverlay");
+  const b2 = document.querySelector(".bg-7");
+  const b3 = document.querySelector(".bg-aboutme");
+  const b4 = document.querySelectorAll(".line4");
+  const b5 = document.querySelector(".line3");
+  const b6 = document.querySelector(".line");
+  const b7 = document.querySelector(".linkbox");
+  const b8 = document.querySelector(".bg-stats");
+  const b9 = document.querySelector(".bg-aboutthispage");
+  intervalId = setInterval(function() {
+    let color = getRandomColor();
+    b1.style.backgroundColor = color;
+    b2.style.backgroundColor = color;
+    b3.style.backgroundColor = color;
+    b4.forEach(element => {
+      element.style.backgroundColor = color;
+    });
+    b5.style.backgroundColor = color;
+    b6.style.backgroundColor = color;
+    b7.style.backgroundColor = color;
+    b8.style.backgroundColor = color;
+    b9.style.backgroundColor = color;
+  }, 500); 
+}
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
