@@ -5,11 +5,9 @@ body {
   height: auto;
   flex-flow: column;
   background-color: #101314;
-  overflow-x: hidden !important;
-  background-attachment: fixed;
-}
-html{
   overflow-x: hidden;
+  margin:0;
+  background-attachment: fixed;
 }
 
 .miniprojectbox {
@@ -107,6 +105,15 @@ html{
   }
   .miniprojectboxHeader p {
     font-size: 1.2rem !important;
+  }
+  .miniprojectbox{
+    overflow-x: scroll;
+    overflow-y:hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  .miniprojectbox::-webkit-scrollbar {
+    display: none;
   }
 }
 .sectiontitle {
@@ -323,8 +330,8 @@ h6 {
   font-family: monospace;
   flex-shrink: 0;
 }
-.containerprivatestuff{
-  width:50%;
+.containerprivatestuff {
+  width: 50%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -517,12 +524,16 @@ footer {
   font-size: 2rem;
   margin-top: 1%;
   flex-wrap: nowrap;
-  border: 2px solid rgb(255, 255, 255);
   flex-wrap: nowrap;
   margin-left: -63%;
 }
 .linkbox p {
   margin-left: 1%;
+}
+@media (min-width:1000px) and (max-width: 1366px) {
+  .linkbox p{
+    margin-left:5%;
+  }
 }
 .linkbox a {
   margin-left: 4%;
@@ -622,44 +633,48 @@ footer {
   justify-content: center;
   align-items: center;
   height: auto;
-  padding:80px;
+  padding: 80px 0;
   width: 90%;
   margin-bottom: 1%;
   margin-top: 1%;
   flex-wrap: wrap;
 }
-.privateprojectboxcontainer{
-  width: 80%;
+.privateprojectboxcontainer {
+  width: 65%;
   height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-
+}
+@media (min-width:768px) and (max-width: 1366px) {
+  .privateprojectboxcontainer {
+    width: 80%;
+  }
 }
 @media (max-width: 768px) {
   .privateprojectboxcontainer {
     width: 100%;
   }
 }
-#passwordforprivat{
-  border:2px solid white;
+#passwordforprivat {
+  border: 2px solid white;
   border-radius: 5px;
   background-color: #101314;
-  padding:5px;
-  color:white;
+  padding: 5px;
+  color: white;
 }
-.password{
+.password {
   width: 80%;
   height: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.privateprojectboxcontainer i{
+.privateprojectboxcontainer i {
   font-size: 2rem;
 }
-.privatestuffHeader{
+.privatestuffHeader {
   width: 30%;
   height: 90%;
   display: flex;
@@ -712,9 +727,9 @@ footer {
   .projectHeader {
     margin-right: 3%;
   }
-  .projectHeader p{
+  .projectHeader p {
     font-size: 1.2rem;
-  };
+  }
 }
 #Projects {
   font-size: 1.8rem;
@@ -779,6 +794,7 @@ footer {
 .bg-stats {
   height: 100%;
   color: rgb(158, 158, 158);
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -876,7 +892,7 @@ footer {
   }
   .linkbox {
     width: 50%;
-    padding: 0;
+    padding-left: 20px;
     font-size: large;
     margin-left: -53%;
   }
@@ -922,7 +938,7 @@ footer {
     max-height: 400px;
     margin-top: 10%;
     justify-content: center;
-    border:2px solid white;
+    border: 2px solid white;
     width: 80%;
     overflow-y: scroll;
   }
@@ -934,11 +950,11 @@ footer {
     justify-content: center;
     align-items: center;
   }
-  .feedbacksent{
+  .feedbacksent {
     justify-content: center;
     align-items: center;
   }
-  .feedbackarrow{
+  .feedbackarrow {
     width: 80%;
     margin-top: 5%;
   }
@@ -948,7 +964,6 @@ footer {
     max-height: 700px;
   }
 }
-
 
 .feedbackbox {
   width: 250px;
@@ -963,7 +978,7 @@ footer {
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.966);
   transition: 0.5s;
-  padding:5px;
+  padding: 5px;
 }
 
 .feedbackbox:hover {
@@ -997,8 +1012,8 @@ footer {
   word-break: break-all;
   color: rgb(0, 0, 0);
 }
-.feedbackname{
-  color:black;
+.feedbackname {
+  color: black;
   height: 10%;
   font-family: monospace;
 }
@@ -1210,6 +1225,16 @@ footer {
   .containerForProject {
     width: 70%;
   }
+  .projectbox{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    width: 90%;
+  }
+  .projectbox::-webkit-scrollbar {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .projectbox {
@@ -1380,20 +1405,29 @@ nav a:hover::after {
   width: 30vw;
   background-color: rgba(160, 158, 158, 0.692);
   position: fixed;
-  transform: translateX(600%);
+  transition: right 0.5s ease;
   height: 90vh;
-  transition: transform 0.5s ease-in-out;
   z-index: 1;
+  right:-80vw;
 }
 .bar.open {
-  transform: translateX(300%);
+  right: 0;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
+  .bar{
+    width: 50vw;
+  }
+}
+@media (max-width: 1366px) {
   .bar {
-    transform:translate(300%);
+    right:0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    width: 30vw;
   }
   .bar.open {
-    transform: translateX(120%);
+    right: 0;
+    opacity: 100;
   }
 }
 .nav-profile button {
@@ -1416,9 +1450,6 @@ nav a:hover::after {
   }
   .nav-links {
     display: none;
-  }
-  .bar {
-    width: 50vw;
   }
   .nav-profile {
     left: 10vw;
@@ -1574,7 +1605,7 @@ nav a:hover::after {
     text-align: center;
   }
 }
-.bg-6 {
+.bg-statsOverlay {
   height: auto;
   width: 100vw;
   background-color: rgb(255, 254, 254);
@@ -1661,4 +1692,49 @@ nav a:hover::after {
   .line4 {
     height: 5vh;
   }
+}
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #101314;
+  height: auto;
+  opacity: 0;
+  transition: 0.5s;
+  display: flex;
+  justify-content: end;
+}
+@media (max-width: 768px) {
+  .stickyHeader {
+    display: none;
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+  width: 70px;
+  height: 30px;
+  border-radius: 12px;
+  background-color: rgb(58, 98, 105);
+}
+.switch::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  margin: 5px;
+  background-color: white;
+  transition: 0.5s;
+}
+.stickyHeader input:checked + .switch {
+  background-color: rgb(84, 129, 84);
+}
+.stickyHeader input:checked + .switch::before {
+  transform: translateX(40px);
+}
+.stickyHeader input {
+  display: none;
 }
