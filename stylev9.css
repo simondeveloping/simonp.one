@@ -5,15 +5,11 @@ body {
   height: auto;
   flex-flow: column;
   background-color: #101314;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
+  margin:0;
   background-attachment: fixed;
 }
 
-@media (max-width: 768px) {
-  html {
-    overflow-x: hidden !important;
-  }
-}
 .miniprojectbox {
   display: flex;
   justify-content: start;
@@ -109,6 +105,15 @@ body {
   }
   .miniprojectboxHeader p {
     font-size: 1.2rem !important;
+  }
+  .miniprojectbox{
+    overflow-x: scroll;
+    overflow-y:hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  .miniprojectbox::-webkit-scrollbar {
+    display: none;
   }
 }
 .sectiontitle {
@@ -519,12 +524,16 @@ footer {
   font-size: 2rem;
   margin-top: 1%;
   flex-wrap: nowrap;
-  border: 2px solid rgb(255, 255, 255);
   flex-wrap: nowrap;
   margin-left: -63%;
 }
 .linkbox p {
   margin-left: 1%;
+}
+@media (min-width:1000px) and (max-width: 1366px) {
+  .linkbox p{
+    margin-left:5%;
+  }
 }
 .linkbox a {
   margin-left: 4%;
@@ -624,19 +633,24 @@ footer {
   justify-content: center;
   align-items: center;
   height: auto;
-  padding: 80px;
+  padding: 80px 0;
   width: 90%;
   margin-bottom: 1%;
   margin-top: 1%;
   flex-wrap: wrap;
 }
 .privateprojectboxcontainer {
-  width: 80%;
+  width: 65%;
   height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+}
+@media (min-width:768px) and (max-width: 1366px) {
+  .privateprojectboxcontainer {
+    width: 80%;
+  }
 }
 @media (max-width: 768px) {
   .privateprojectboxcontainer {
@@ -1211,6 +1225,16 @@ footer {
   .containerForProject {
     width: 70%;
   }
+  .projectbox{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    width: 90%;
+  }
+  .projectbox::-webkit-scrollbar {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .projectbox {
@@ -1381,20 +1405,29 @@ nav a:hover::after {
   width: 30vw;
   background-color: rgba(160, 158, 158, 0.692);
   position: fixed;
-  transform: translateX(600%);
+  transition: right 0.5s ease;
   height: 90vh;
-  transition: transform 0.5s ease-in-out;
   z-index: 1;
+  right:-80vw;
 }
 .bar.open {
-  transform: translateX(300%);
+  right: 0;
 }
-@media (max-width: 768px) {
+@media (max-width:768px){
+  .bar{
+    width: 50vw;
+  }
+}
+@media (min-width:1000px) and (max-width: 1366px) {
   .bar {
-    transform: translate(300%);
+    right:0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    width: 30vw;
   }
   .bar.open {
-    transform: translateX(120%);
+    right: 0;
+    opacity: 100;
   }
 }
 .nav-profile button {
@@ -1417,9 +1450,6 @@ nav a:hover::after {
   }
   .nav-links {
     display: none;
-  }
-  .bar {
-    width: 50vw;
   }
   .nav-profile {
     left: 10vw;
@@ -1543,6 +1573,7 @@ nav a:hover::after {
   align-items: center;
   font-size: 5rem;
   font-family: monospace;
+  margin-left: 5%;
 }
 @media (max-width: 768px) {
   .supportText {
@@ -1669,7 +1700,7 @@ nav a:hover::after {
   width: 100%;
   z-index: 1000;
   background-color: #101314;
-  height: 10vh;
+  height: auto;
   opacity: 0;
   transition: 0.5s;
   display: flex;
@@ -1707,4 +1738,24 @@ nav a:hover::after {
 }
 .stickyHeader input {
   display: none;
+}
+@media (min-width:1000px) and (max-width:1080px){
+  .statsbox2{
+    width:400px;
+  }
+  #Projects{
+    font-size:1.5rem;
+  }
+  #Mini-Projects{
+    font-size:1.4rem;
+  }
+  #About-this-page{
+    font-size:1.4rem !important ;
+  }
+  .AboutThisPageHeader p{
+    font-size:1rem;
+  }
+  #Private-stuff{
+    font-size:1.4rem;
+  }
 }
