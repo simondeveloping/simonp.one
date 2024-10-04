@@ -1256,6 +1256,7 @@ nav {
   color: white;
   font-family: monospace;
   z-index: 1000;
+  margin-top: 1%;
 }
 .nav-links {
   width: 50%;
@@ -1268,6 +1269,11 @@ nav {
   display: flex;
   justify-content: center;
   position: relative;
+}
+@media (max-width: 1366px) {
+  .nav-profile {
+    left:2%;
+  }
 }
 .profile {
   width: 40vw;
@@ -1758,5 +1764,95 @@ nav a:hover::after {
   }
   #Private-stuff{
     font-size:1.4rem;
+  }
+}
+.bg-movingbox{
+  width: 90vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right,transparent,black 10% 90%,transparent);
+}
+.bg-movingbox h{
+  position: absolute;
+  animation: moving 10s linear infinite;
+  white-space: nowrap;
+  color:white;
+  font-size: 2rem;
+  left:-100%;
+}
+.bg-movingbox i{
+  font-size: 2rem;
+  color:white;
+}
+@keyframes moving {
+  0%{
+    left:100%;
+  }
+  100%{
+    left:-10%;
+  }
+}
+.bg-movingbox h:nth-child(1) {
+  animation-delay: -5s;
+}
+.bg-movingbox h:nth-child(2) {
+  animation-delay: -4s;
+}
+.bg-movingbox h:nth-child(3) {
+  animation-delay: -2.5s;
+}
+.bg-movingbox h:nth-child(4) {
+  animation-delay:-1.5s;
+}
+.bg-movingbox h:nth-child(5) {
+  animation-delay: -0.5s;
+}
+.bg-movingbox h:nth-child(6) {
+  animation-delay: 1s;
+}
+.bg-movingbox h:nth-child(7) {
+  animation-delay: 2s;
+}
+.bg-movingbox h:nth-child(8) {
+  animation-delay: 3s;
+}
+.bg-movingbox:hover h{
+  animation-play-state: paused !important;
+}
+@media (max-width: 768px) {
+  .bg-movingbox h:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .bg-movingbox h:nth-child(2) {
+    animation-delay: 1s;
+  }
+  .bg-movingbox h:nth-child(3) {
+    animation-delay: 2.5s;
+  }
+  .bg-movingbox h:nth-child(4) {
+    animation-delay:3.5s;
+  }
+  .bg-movingbox h:nth-child(5) {
+    animation-delay: 4.5s;
+  }
+  .bg-movingbox h:nth-child(6) {
+    animation-delay: 6.5s;
+  }
+  .bg-movingbox h:nth-child(7) {
+    animation-delay: 7.5s;
+  }
+  .bg-movingbox h:nth-child(8) {
+    animation-delay: 8.5s;
+  }
+  @keyframes moving {
+    0%{
+      left:100%;
+    }
+    100%{
+      left:-200%;
+    }
   }
 }
