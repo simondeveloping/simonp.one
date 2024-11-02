@@ -280,13 +280,10 @@ window.addEventListener('scroll', function() {
   const scrollY = window.scrollY;
 
   if (scrollY === 0) {
-    // Ganz oben - Header unsichtbar
     header.style.opacity = '0';
   } else {
-    // Header sichtbar
     header.style.opacity = '1';
     
-    // Prüfe die Positionen und ändere die Farbe
     const sections = document.querySelectorAll('.bg-statsOverlay, .bg-7, .bg-aboutme');
     let foundMatch = false;
 
@@ -360,7 +357,7 @@ function getRandomColor() {
   return color;
 }
 let today = new Date();
-let eventDay = new Date(new Date().getFullYear(), 9,31);
+let eventDay = new Date(new Date().getFullYear(), 11,24);
 let timediff = eventDay - today;
 let daysLeft = Math.ceil(timediff / (1000 * 60 * 60 * 24));
 document.getElementById("eventCounter").textContent = daysLeft + " Days";
